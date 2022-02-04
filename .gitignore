@@ -1,5 +1,5 @@
 # deployment config file
-build-scripts/login-details.txt
+scripts/login-details.txt
 
 # Azure Functions artifacts
 bin
