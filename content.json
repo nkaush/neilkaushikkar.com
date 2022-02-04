@@ -1,0 +1,111 @@
+{
+  "timeline": [
+    {
+      "company": "CS 128 Honors @ UIUC",
+      "position": "Undergraduate Instructor",
+      "link": "https://honors.cs128.org/",
+      "image_path": "/static/images/128-honors-1.png",
+      "start": "January 2022",
+      "end": "Present",
+      "description": [
+        "something goes here..."
+      ],
+      "location": "Champaign, IL",
+      "inverted": true
+    },
+    {
+      "company": "Disruption Lab @ Gies College of Business",
+      "position": "Incubator Program Instructor",
+      "link": "https://giesgroups.illinois.edu/disruptionlab/home/",
+      "image_path": "/static/images/gies2.png",
+      "start": "January 2022",
+      "end": "Present",
+      "description": [
+        "something goes here..."
+      ],
+      "location": "Champaign, IL",
+      "inverted": false
+    },
+    {
+      "company": "COUNTRY Financial",
+      "position": "Software Engineer Intern",
+      "link": "https://countryfinancial.com/",
+      "image_path": "/static/images/country2.png",
+      "start": "January 2021",
+      "end": "August 2021",
+      "description": [
+        "something goes here..."
+      ],
+      "location": "Champaign, IL",
+      "inverted": true
+    },
+    {
+      "company": "NASA",
+      "position": "Software Engineer Intern",
+      "link": "https://nasa.gov/",
+      "image_path": "/static/images/nasa2.png",
+      "start": "June 2020",
+      "end": "August 2020",
+      "description": [
+        "This internship was conducted remotely through NASA Ames Research Center and the Universities Space Research Association (USRA).",
+        "I aided the NASA Aeronatics Research Institute's (NARI) effort to track the effect of COVID-19 on air traffic patterns in the United States. I constructed a data pipeline to consolidate and structure data from JHU, the Opensky Network, FAA, BTS, and NASA's Sherlock Data Warehouse. I also implemented random forest machine learning algorithms to model air traffic in the US and predict air traffic patterns in the future."
+      ],
+      "location": "Mountain View, CA",
+      "inverted": false
+    },
+    {
+      "company": "NASA",
+      "position": "Software Engineer Intern",
+      "link": "https://nasa.gov/",
+      "image_path": "/static/images/nasa2.png",
+      "start": "June 2019",
+      "end": "August 2019",
+      "description": [
+        "This internship was conducted at NASA Ames Research Center in the Intelligent Systems Division through KBR, Inc.",
+        "I led an effort to optimize a modular drone for any task. My team and I implemented the ranking function used to select drones best suited to specified tasks. I also developed a web app allowing users to specify drone missions/tasks and to receive building instructions for the optimal drone.",
+        "As part of this internship, I co-wrote a technical conference paper for AIAA's 2020 Multidisciplinary Design Optimization Forum."
+      ],
+      "location": "Mountain View, CA",
+      "inverted": true
+    }
+  ],
+  "links": {
+    "github": "https://github.com/nkaush",
+    "linkedin": "https://www.linkedin.com/in/neil-kaushikkar/",
+    "instagram": "https://www.instagram.com/neil.kaushikkar/",
+    "gmail": "neil.kaushikkar@gmail.com",
+    "illinois_email": "neilk3@illinois.edu"
+  },
+  "skills": [
+    {
+      "name": "Rust",
+      "icon": "<img class=\"bg-primary img-circle img-responsive\" src=\"/static/images/rust-primary.png\" alt=\"rust\">",
+      "description": "I teach it."
+    },
+    {
+      "name": "Java",
+      "icon": "<i class=\"fa icon-java-bold fa-2x\" style=\"padding-top:20px; padding-left:25px\"></i>",
+      "description": "I learned it."
+    },
+    {
+      "name": "C++",
+      "icon": "<i class=\"fa icon-cplusplus fa-2x\" style=\"padding-top:26px\"></i>",
+      "description": "I am learning it."
+    },
+    {
+      "name": "Python",
+      "icon": "<i class=\"fa icon-python fa-2x\" style=\"padding-top:24px; padding-left:12px\"></i>",
+      "description": "I know it."
+    },
+    {
+      "name": "Docker",
+      "icon": "<i class=\"fa icon-docker fa-2x\" style=\"padding-top:24px; padding-left:12px\"></i>",
+      "description": "I used it."
+    },
+    {
+      "name": "Microsoft Azure",
+      "icon": "<img class=\"bg-primary img-circle img-responsive\" src=\"/static/images/azure.png\" alt=\"Microsoft Azure\">",
+      "description": "I used it."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<!-- Skills -->
+<section class="content-section bg-primary text-white text-center" id="skills">
+  <div class="container">
+    <div class="content-section-heading">
+      <!--<h3 class="text-secondary mb-0">Skills</h3>-->
+      <h2 class="mb-2">Skills</h2>
+    </div>
+    <div class="container text-center mb-5">
+      <p class="lead">Below are some of my skills that I've picked up over the last few years.<br>This is an ever expanding list as I'm always eager to learn more.</p>
+    </div>
+    <div class="row" style="margin-bottom: 48px">
+      {{#each skills_list}}
+      <div class="col-lg-4 col-md-6 mb-5">
+        <span class="service-icon rounded-circle mx-auto mb-3 text-secondary">
+          {{{ this.icon }}}
+        </span>
+        <h4>
+          <b>{{ this.name }}</b>
+        </h4>
+        <p class="text-faded mb-0">{{{ this.description }}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
