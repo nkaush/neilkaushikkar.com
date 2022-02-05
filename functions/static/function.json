@@ -4,8 +4,8 @@
         "authLevel": "anonymous",
         "type": "httpTrigger",
         "direction": "in",
-        "name": "index",
-        "route": "index/",
+        "name": "static",
+        "route": "static/{*location}",
         "methods": [
           "get"
         ]

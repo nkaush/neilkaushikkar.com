@@ -6,7 +6,7 @@ use serde_json::{Value, Map};
 /// GET /index
 pub async fn index() -> Result<impl warp::Reply, Infallible> {
     let mut handlebars = Handlebars::new();
-    handlebars.register_template_file("index-template", "templates/index.html").unwrap();
+    handlebars.register_template_file("index-template", "templates/index.hbs").unwrap();
 
     // register partials
     handlebars.register_template_file("skills", "templates/sections/skills.hbs").unwrap();

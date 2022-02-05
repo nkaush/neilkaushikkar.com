@@ -5,6 +5,7 @@ use handlebars::{
 };
 
 // define a custom helper
+#[allow(dead_code)]
 pub fn format_skill(
     h: &Helper,
     _: &Handlebars,
