@@ -9,7 +9,7 @@
       "start": "January 2022",
       "end": "Present",
       "description": [
-        "something goes here..."
+        "I am currently teaching CS 128 Honors at UIUC, the honors add-on course to CS128: Introduction to Computer Science II at the University of Illinois. I am developing a curriculum to teach around 120 other undergraduates about memory management, concurrency, and more in the Rust programming language. I also manage the course staff team who develop homework to accompany the curriculum."
       ],
       "location": "Champaign, IL",
       "inverted": true
@@ -22,7 +22,7 @@
       "start": "January 2022",
       "end": "Present",
       "description": [
-        "something goes here..."
+        "I am an instructor for the Disruption Lab at Gies' Incubator Program. This program aims to prepare students for careers in product management and tech consulting by teaching core technical skills and helping students discover how business and technology intersect. I am developing a curriculum to teach students in non-technical majors about the basics of Python, Bash, web development, and more. I hold weekly lectures for 16 students in the CS track of the Incubator program."
       ],
       "location": "Champaign, IL",
       "inverted": false
@@ -35,7 +35,8 @@
       "start": "January 2021",
       "end": "August 2021",
       "description": [
-        "something goes here..."
+        "I worked on a handful of projects throughout my time at COUNTRY Financial so support the enterprise architecture, app monitoring, and contact center teams.",
+        "The main project I worked on involved designing an end-to-end system to automate authenticating callers in customer support centers using Azure Natural Language Understanding, Azure Speech-to-Text, and Cisco interactive voice response (IVR) systems. Based on initial testing, this application saved over 200 hours/week of manual customer validation. I developed a REST API with Java-based Azure Functions App and a PostgreSQL database to securely stream audio between cloud and on-premise systems and cross-check callers' spoken identifying information."
       ],
       "location": "Champaign, IL",
       "inverted": true
@@ -75,7 +76,8 @@
     "linkedin": "https://www.linkedin.com/in/neil-kaushikkar/",
     "instagram": "https://www.instagram.com/neil.kaushikkar/",
     "gmail": "neil.kaushikkar@gmail.com",
-    "illinois_email": "neilk3@illinois.edu"
+    "illinois_email": "neilk3@illinois.edu",
+    "website_source": "https://github.com/nkaush/neilkaushikkar.com"
   },
   "skills": [
     {
