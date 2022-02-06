@@ -1,1 +1,1 @@
-web: ./target/x86_64-unknown-linux-gnu/release/handler
+web: ./target/release/handler
