@@ -12,3 +12,9 @@ azure-deploy:
 
 clean:
 	cargo clean
+
+shell: 
+	heroku run bash -a neilkaushikkar
+
+logs:
+	heroku logs --tail
