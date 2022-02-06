@@ -1,5 +1,5 @@
 # Prepare workspace
-sh scripts/prepare-workspace.sh
+sh azure-scripts/prepare-workspace.sh
 
 # Build
 rustup target add x86_64-unknown-linux-musl
@@ -10,11 +10,11 @@ cp target/x86_64-unknown-linux-musl/release/handler .
 login_details=()
 while IFS= read -r line || [[ "$line" ]]; do
   login_details+=("$line")
-done < scripts/login-details.txt
+done < azure-scripts/login-details.txt
 
 # Deploy
 az login -u ${login_details[1]} -p ${login_details[2]}
 func azure functionapp publish ${login_details[0]}
 
 # Clean up working directory
-sh scripts/clean-workspace.sh
+sh azure-scripts/clean-workspace.sh

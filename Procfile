@@ -1,1 +1,1 @@
-web: ./target/release/handler
+web: FUNCTIONS_CUSTOMHANDLER_PORT=$PORT ./target/release/handler
