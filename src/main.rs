@@ -30,7 +30,9 @@ async fn main() {
     // View access logs by setting `RUST_LOG=index`.
     let routes = api.with(warp::log("index"));
     // Start up the server...
-    let port_key = "FUNCTIONS_CUSTOMHANDLER_PORT";
+    // let port_key = "FUNCTIONS_CUSTOMHANDLER_PORT";
+
+    let port_key = "PORT";
     let port: u16 = match env::var(port_key) {
         Ok(val) => val.parse().expect("Custom Handler port is not a number!"),
         Err(_) => 3000,
