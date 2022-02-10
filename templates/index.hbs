@@ -70,11 +70,10 @@
     </nav>
 
     <!-- Header -->
-    <header class="masthead d-flex" style="padding-bottom: 100px">
+    <header class="masthead d-flex" style="padding-bottom: 100px; background-image: url('{{ background_image }}');">
       <div class="container text-center my-auto">
         <div style="padding-bottom:32px">
-          <img id="profile_pic" src="/static/images/profile0.png" width="250" class="img-responsive img-circle" style="border:8px solid white" alt="">
-          <!--<img id="profile_pic" src="/static/img/professional_profile_rotated_square4.jpg" width="250" class="img-responsive img-circle" style="border:8px solid white" alt="">-->
+          <img id="profile_pic" src="{{ masthead_profile }}" width="250" class="img-responsive img-circle" style="border:8px solid white" alt="">
           </img>
         </div>
         <h1 class="mb-2">{{ full_name }}</h1>
@@ -85,39 +84,9 @@
       </div>
       <div class="overlay"></div>
     </header>
-    
-    <!-- Affiliations -->
-    <section class="content-section" style="padding-top: 2rem; padding-bottom: 2rem" id="about">
-      <aside class="clients">
-        <div class="row">
-          <div class="col-md-12" style="text-align: center">
-            <a href="http://illinois.edu/" target="_blank" rel="noopener noreferrer" class="client-link">
-              <img class="center-block" src="/static/images/uiuc.png" alt="University of Illinois at Urbana-Champaign (UIUC)">
-            </a>
 
-            <a href="https://cs.illinois.edu/" target="_blank" rel="noopener noreferrer" class="client-link">
-              <img class="center-block" src="/static/images/grainger-cs.png" alt="CS Department @ the University of Illinois at Urbana-Champaign (UIUC)">
-            </a>
-
-            <a href="https://honors.cs128.org/" target="_blank" rel="noopener noreferrer" class="client-link">
-              <img class="center-block" src="/static/images/128-honors.png" alt="CS 128 Honors @ the University of Illinois at Urbana-Champaign (UIUC)">
-            </a>
-
-            <a href="https://giesgroups.illinois.edu/disruptionlab/home/" target="_blank" rel="noopener noreferrer" class="client-link">
-              <img class="center-block" src="/static/images/gies.png" alt="Disruption Lab @ the University of Illinois at Urbana-Champaign (UIUC)">
-            </a>
-
-            <a href="http://nasa.gov/" target="_blank" rel="noopener noreferrer" class="client-link">
-              <img class="center-block" src="/static/images/nasa.png" alt="NASA">
-            </a>
-
-            <a href="https://www.countryfinancial.com/" target="_blank" rel="noopener noreferrer" class="client-link">
-              <img class="center-block" src="/static/images/country.png" alt="COUNTRY Financial">
-            </a>
-          </div>
-        </div>
-      </aside>
-    </section>
+    <!-- Affiliations Template Here -->
+    {{> affiliations affiliations=affiliations}}
         
     <!-- Intro -->
     <section class="content-section" style="background:#edeeef; padding-top: 4rem; padding-bottom: 6rem">
@@ -125,7 +94,7 @@
         <div class="row">
           <div class="col-sm-12 col-lg-4">
             <div class="team-member" style="margin-bottom:24px">
-              <img src="/static/images/profile3.png" style="border:8px solid white; width:350px!important; height:100%" class="img-responsive img-circle">
+              <img src="{{ introduction.profile }}" style="border:8px solid white; width:350px!important; height:100%" class="img-responsive img-circle">
               <div id="social1" class="mt-4">
                 <ul class="list-inline social-buttons">
                   <li class="text-center">
@@ -143,11 +112,10 @@
           </div>
           <div class="col-sm-12 col-lg-8" id="intro-section" style="margin-bottom: 1rem; margin-top:1rem">
             <h4>{{ full_name }}</h4>
-            <p class="lead"><b>UIUC '24, BS CS Student, Software Engineer, and Undergraduate Instructor</b></p>
-            <p class="lead" style="font-size: 14pt">I am currently pursuing a bachelor's degree in computer science at the University of Illinois at Urbana-Champaign (UIUC) with concentrations in systems engineering and algorithms & models of computation. At the moment, I am enjoying learning about Rust, a systems programming language with an emphasis on memory safety and parallelism. I have experience working with Microsoft Azure's cloud computing resources. I also have experience working on large-scale software engineering projects in C++, Python, and Java.</p>
-            <p class="lead" style="font-size: 14pt">I am currently teaching CS 128 Honors at UIUC, the honors add-on course to CS128: Introduction to Computer Science II at the University of Illinois. I am developing a curriculum to teach around 100 other undergraduates about memory management, concurrency, and more in the Rust programming language. I also manage the course staff team who develop homework to accompany the curriculum.</p>
-            <p class="lead" style="font-size: 14pt">I am also an instructor for the Disruption Lab at Gies' Incubator Program. The program aims to prepare students for careers in product management and tech consulting by teaching core technical skills and helping students discover how business and technology intersect. I am developing a curriculum to teach students in non-technical majors about the basics of Python, Bash, web development, and more. I hold weekly lectures for 16 students in the CS track of the Incubator program.</p>
-
+            <p class="lead"><b>{{ introduction.title }}</b></p>
+            {{#each introduction.paragraphs}}
+            <p class="lead" style="font-size: 14pt">{{ this }} </p>
+            {{/each}}
             <!-- Degree Status -->
             <!-- <p class="lead" style="*font-size: 15pt; margin-bottom:0px"><b>University of Illinois at Urbana-Champaign (UIUC)</b></p>
             <ul style="padding-left:30px">

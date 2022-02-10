@@ -1,6 +1,30 @@
 {
   "full_name": "Neil Kaushikkar",
+  "background_image": "/static/images/san-francisco.png",
+  "masthead_profile": "/static/images/profile0.png",
+  "introduction": {
+    "profile": "/static/images/profile3.png",
+    "title": "UIUC '24, BS CS Student, Software Engineer, and Undergraduate Instructor",
+    "paragraphs": [
+      "I am currently pursuing a bachelor's degree in computer science at the University of Illinois at Urbana-Champaign (UIUC) with concentrations in systems engineering and algorithms & models of computation. At the moment, I am enjoying learning about Rust, a systems programming language with an emphasis on memory safety and parallelism. I have experience working with Microsoft Azure's cloud computing resources. I also have experience working on large-scale software engineering projects in C++, Python, and Java.",
+      "I am currently teaching CS 128 Honors at UIUC, the honors add-on course to CS128: Introduction to Computer Science II at the University of Illinois. I am developing a curriculum to teach around 150 other undergraduates about memory management, concurrency, and more in the Rust programming language. I also manage the course staff team who develop homework to accompany the curriculum.",
+      "I am also an instructor for the Disruption Lab at Gies' Incubator Program. The program aims to prepare students for careers in product management and tech consulting by teaching core technical skills and helping students discover how business and technology intersect. I am developing a curriculum to teach students in non-technical majors about the basics of Python, Bash, web development, and more. I hold weekly lectures for 16 students in the CS track of the Incubator program."
+    ]
+  },
   "timeline": [
+    {
+      "company": "Twilio",
+      "position": "Software Engineering Intern",
+      "link": "https://www.twilio.com/",
+      "image_path": "/static/images/twilio-logo.png",
+      "start": "May 2022",
+      "end": "August 2022",
+      "description": [
+        "I am an incoming software engineering intern for the billing team at Twilio."
+      ],
+      "location": "San Francisco, CA",
+      "inverted": false
+    },
     {
       "company": "CS 128 Honors @ UIUC",
       "position": "Undergraduate Instructor",
@@ -109,6 +133,43 @@
       "name": "Microsoft Azure",
       "icon": "<img class=\"bg-primary img-circle img-responsive\" src=\"/static/images/azure.png\" alt=\"Microsoft Azure\">",
       "description": "I used it."
+    }
+  ],
+  "affiliations": [
+    {
+      "link": "http://illinois.edu/",
+      "img": "/static/images/uiuc.png",
+      "alt": "University of Illinois at Urbana-Champaign (UIUC)"
+    },
+    {
+      "link": "https://cs.illinois.edu/",
+      "img": "/static/images/grainger-cs.png",
+      "alt": "CS Department @ the University of Illinois at Urbana-Champaign (UIUC)"
+    },
+    {
+      "link": "https://honors.cs128.org/",
+      "img": "/static/images/128-honors.png",
+      "alt": "CS 128 Honors @ the University of Illinois at Urbana-Champaign (UIUC)"
+    },
+    {
+      "link": "https://giesgroups.illinois.edu/disruptionlab/home/",
+      "img": "/static/images/gies.png",
+      "alt": "Disruption Lab @ the University of Illinois at Urbana-Champaign (UIUC)"
+    },
+    {
+      "link": "http://nasa.gov/",
+      "img": "/static/images/nasa.png",
+      "alt": "NASA"
+    },
+    {
+      "link": "https://www.countryfinancial.com/",
+      "img": "/static/images/country.png",
+      "alt": "COUNTRY Financial"
+    },
+    {
+      "link": "https://www.twilio.com/",
+      "img": "/static/images/twilio-logo-2.png",
+      "alt": "Twilio"
     }
   ]
 }

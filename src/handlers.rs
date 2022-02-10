@@ -12,6 +12,8 @@ pub async fn index() -> Result<impl warp::Reply, Infallible> {
     handlebars.register_template_file("skills", "templates/sections/skills.hbs").unwrap();
     handlebars.register_template_file("timeline", "templates/sections/timeline.hbs").unwrap();
     handlebars.register_template_file("portfolio", "templates/sections/portfolio.hbs").unwrap();
+    handlebars.register_template_file("affiliations", "templates/sections/affiliations.hbs").unwrap();
+
     // handlebars.register_template_file("portfolio_modals", "templates/sections/portfolio_modals.htmls").unwrap();
 
     let config_data = std::fs::read_to_string("content.json").unwrap();
