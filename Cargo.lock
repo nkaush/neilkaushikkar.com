@@ -309,6 +309,7 @@ version = "0.1.0"
 dependencies = [
  "base64",
  "handlebars",
+ "lazy_static",
  "log",
  "pretty_env_logger",
  "serde",
