@@ -1,0 +1,7 @@
+*
+!src/
+!templates/
+!www/
+!Cargo.toml
+!content.json
+!rust-toolchain

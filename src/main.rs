@@ -6,7 +6,6 @@ use std::net::Ipv4Addr;
 use std::env;
 use warp::Filter;
 
-
 /// Provides a RESTful web server managing some Todos.
 ///
 /// API will be:
