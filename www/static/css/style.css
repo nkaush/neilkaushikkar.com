@@ -1,0 +1,78 @@
+@font-face {
+  font-family: antebas-bold;
+  src: url('/static/font/antebas-bold.otf') format("opentype");
+}
+
+@font-face {
+  font-family: antebas-medium;
+  src: url('/static/font/antebas-medium.otf') format("opentype");
+}
+
+@font-face {
+  font-family: antebas;
+  src: url('/static/font/antebas-regular.otf') format("opentype");
+}
+
+@font-face {
+  font-family: antebas-heavy;
+  src: url('/static/font/antebas-heavy.otf') format("opentype");
+}
+
+p {
+  font-family: antebas-medium;
+}
+
+nav {
+  font-family: antebas-bold;
+  font-size: 125%;
+  border-bottom: 0.3mm solid;
+}
+
+button {
+  margin: 20px;
+  outline: none;
+}
+
+.custom-btn {
+  width: 100px;
+  height: 40px;
+  border: 0.3mm solid #000;
+  top: 3px;
+  font-family: antebas-bold;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-15 {
+  background: #fff;
+ color: #000;
+ z-index: 1;
+}
+
+.btn-15:after {
+ position: absolute;
+ content: "";
+ width: 0;
+ height: 100%;
+ top: 0;
+ right: 0;
+ z-index: -1;
+  background: #000;
+ transition: all 0.3s ease;
+}
+
+.btn-15:hover {
+ color: #ffffff;
+}
+
+.btn-15:hover:after {
+ left: 0;
+ width: 100%;
+}
+
+.btn-15:active {
+ top: 2px;
+}
