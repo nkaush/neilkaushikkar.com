@@ -18,10 +18,6 @@
   src: url('/static/font/antebas-heavy.otf') format("opentype");
 }
 
-p {
-  font-family: antebas-medium;
-}
-
 nav {
   font-family: antebas-bold;
   font-size: 125%;
@@ -31,6 +27,15 @@ nav {
 button {
   margin: 20px;
   outline: none;
+}
+
+.introduction {
+  font-family: antebas-bold;
+}
+
+.introduction-content {
+  font-family: antebas;
+  font-size: 125%;
 }
 
 .custom-btn {
@@ -75,4 +80,17 @@ button {
 
 .btn-15:active {
  top: 2px;
+}
+
+.boxed-link {
+  box-shadow: inset 0 0 0 0 #000;
+  color: #000;
+  text-decoration: underline;
+  text-decoration-thickness: 0.3mm;
+  text-underline-position: under;
+}
+.boxed-link:hover {
+  box-shadow: inset 300px 0 0 0 #000;
+  color: white;
+  text-decoration: none;
 }

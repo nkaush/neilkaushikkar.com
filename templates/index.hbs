@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
     <title>{{ full_name }} | Portfolio</title>
+    <link rel="shortcut icon" href="/static/images/favicon2.png" type="image/x-icon">
   </head>
   <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white mb-0">
-      <a class="navbar-brand ml-5" href="#">neil kaushikkar</a>
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white mb-0">
+      <a class="navbar-brand ml-5 pl-3" href="#">neil kaushikkar</a>
       <div class="ml-auto order-0">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
           <span class="navbar-toggler-icon"></span>
@@ -23,23 +24,68 @@
       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 mr-5">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="{{ links.github }}" target="blank">github</a>
+            <a class="nav-link active" href="{{ links.github }}" target="_blank" rel="noopener noreferrer">github</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{ links.linkedin }}" target="blank">linkedin</a>
+            <a class="nav-link active" href="{{ links.linkedin }}" target="_blank" rel="noopener noreferrer">linkedin</a>
           </li>
           <li class="nav-item">
-            <form action="mailto:{{ links.gmail }}" target="blank">
+            <a class="nav-link active" href="/resume" target="_blank" rel="noopener noreferrer">resume</a>
+          </li>
+          <li class="nav-item">
+            <form action="mailto:{{ links.gmail }}" target="_blank" rel="noopener noreferrer">
               <button class="custom-btn btn-15">hire me</button>
             </form>
           </li>
         </ul>
       </div>
     </nav>
-
-    <div class="container">
-    <p>Hello</p>
+    <br><br><br>
+    <div class="container mt-5 pt-5">
+      <h2 class="introduction">Hey, I{{{ ssd }}}'{{{ ssde }}}m Neil {{{ ssd }}}-{{{ ssde }}} A Software Engineer<br>from San Francisco.</h2>
+      <p class="introduction-content mt-3">
+        I{{{ ssd }}}'{{{ ssde }}}m a computer science student at the University of Illinois at Urbana{{{ ssd }}}-{{{ ssde }}}Champaign {{{ ssd }}}({{{ ssde }}}UIUC{{{ ssd }}}){{{ ssde }}}.
+        I currently run the <a class="boxed-link" href="{{ links.cs128h }}" target="_blank" rel="noopener noreferrer">CS 128 Honors</a> course at UIUC where I{{{ ssd }}}'{{{ ssde }}}ve taught the Rust programming language to {{{ ssd }}}~{{{ ssde }}}300 freshman since January 2022. I publish weekly lectures, develop autograded Rust programming homeworks, and manage a course staff of 10 other students. 
+      </p>  
+      <p class="introduction-content">
+        During my time on the billing engineering team at <a class="boxed-link" href="{{ links.twilio }}" target="_blank" rel="noopener noreferrer">Twilio</a>, I containerized {{{ ssd }}}4{{{ ssde }}} core billing services in production as part of the company{{{ ssd }}}'{{{ ssde }}}s migration from Amazon Linux 1 to AL22. I also developed features on core Scala billing services as requested by the billing operations team.
+        At Country Financial, I assisted the <a class="boxed-link" href="{{ links.cf_article }}" target="_blank" rel="noopener noreferrer">Enterprise Architecture team</a> in migrating Spring Boot applications from on{{{ ssd }}}-{{{ ssde }}}premise hosting to Azure Cloud. I also developed a system to automatically verify callers using voice recognition to save over 200 hours of manual client verification in company call centers.
+        While at NASA Ames Research Center, I worked on an effort under Dr. Parimal Kopardekar to find the optimal configuration of a modular drone for any specified task and co{{{ ssd }}}-{{{ ssde }}}authored a <a class="boxed-link" href="{{ links.burd_paper }}" target="_blank" rel="noopener noreferrer">conference paper</a> on our research. 
+      </p>
     </div>
+
+    <div class="container mt-5 pt-5">
+      <h2 class="introduction">Featured Work.</h2>
+      <p>Coming soon...</p>
+      <!-- <div class="container text-center">
+        <div class="row row-cols-2">
+          <div class="col">
+            {{!-- CARD BEGIN --}}
+            <div class="card text-bg-dark">
+              <img src="..." class="card-img" alt="...">
+              <div class="card-img-overlay">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Last updated 3 mins ago</p>
+              </div>
+            </div>
+            {{!-- CARD END --}}
+          </div>
+          <div class="col">
+            {{!-- CARD BEGIN --}}
+            <div class="card text-bg-dark">
+              <img src="..." class="card-img" alt="...">
+              <div class="card-img-overlay">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Last updated 3 mins ago</p>
+              </div>
+            </div>
+            {{!-- CARD END --}}
+          </div>
+        </div>
+      </div>
+    </div> -->
   
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
