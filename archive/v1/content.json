@@ -1,0 +1,175 @@
+{
+  "full_name": "Neil Kaushikkar",
+  "background_image": "/static/images/san-francisco.png",
+  "masthead_profile": "/static/images/profile0.png",
+  "introduction": {
+    "profile": "/static/images/profile3.png",
+    "title": "UIUC '24, BS CS Student, Software Engineer, and Undergraduate Instructor",
+    "paragraphs": [
+      "I am currently pursuing a bachelor's degree in computer science at the University of Illinois at Urbana-Champaign (UIUC) with concentrations in systems engineering and algorithms & models of computation. At the moment, I am enjoying learning about Rust, a systems programming language with an emphasis on memory safety and parallelism. I have experience working with Microsoft Azure's cloud computing resources. I also have experience working on large-scale software engineering projects in C++, Python, and Java.",
+      "I am currently teaching CS 128 Honors at UIUC, the honors add-on course to CS128: Introduction to Computer Science II at the University of Illinois. I am developing a curriculum to teach around 150 other undergraduates about memory management, concurrency, and more in the Rust programming language. I also manage the course staff team who develop homework to accompany the curriculum.",
+      "I am also an instructor for the Disruption Lab at Gies' Incubator Program. The program aims to prepare students for careers in product management and tech consulting by teaching core technical skills and helping students discover how business and technology intersect. I am developing a curriculum to teach students in non-technical majors about the basics of Python, Bash, web development, and more. I hold weekly lectures for 16 students in the CS track of the Incubator program."
+    ]
+  },
+  "timeline": [
+    {
+      "company": "Twilio",
+      "position": "Software Engineering Intern",
+      "link": "https://www.twilio.com/",
+      "image_path": "/static/images/twilio-logo.png",
+      "start": "May 2022",
+      "end": "August 2022",
+      "description": [
+        "I am an incoming software engineering intern for the billing team at Twilio."
+      ],
+      "location": "San Francisco, CA",
+      "inverted": false
+    },
+    {
+      "company": "CS 128 Honors @ UIUC",
+      "position": "Undergraduate Instructor",
+      "link": "https://honors.cs128.org/",
+      "image_path": "/static/images/128-honors-1.png",
+      "start": "January 2022",
+      "end": "Present",
+      "description": [
+        "I am currently teaching CS 128 Honors at UIUC, the honors add-on course to CS128: Introduction to Computer Science II at the University of Illinois. I am developing a curriculum to teach around 120 other undergraduates about memory management, concurrency, and more in the Rust programming language. I also manage the course staff team who develop homework to accompany the curriculum."
+      ],
+      "location": "Champaign, IL",
+      "inverted": true
+    },
+    {
+      "company": "Disruption Lab @ Gies College of Business",
+      "position": "Incubator Program Instructor",
+      "link": "https://giesgroups.illinois.edu/disruptionlab/home/",
+      "image_path": "/static/images/gies2.png",
+      "start": "January 2022",
+      "end": "Present",
+      "description": [
+        "I am an instructor for the Disruption Lab at Gies' Incubator Program. This program aims to prepare students for careers in product management and tech consulting by teaching core technical skills and helping students discover how business and technology intersect. I am developing a curriculum to teach students in non-technical majors about the basics of Python, Bash, web development, and more. I hold weekly lectures for 16 students in the CS track of the Incubator program."
+      ],
+      "location": "Champaign, IL",
+      "inverted": false
+    },
+    {
+      "company": "COUNTRY Financial",
+      "position": "Software Engineer Intern",
+      "link": "https://countryfinancial.com/",
+      "image_path": "/static/images/country2.png",
+      "start": "January 2021",
+      "end": "August 2021",
+      "description": [
+        "I worked on a handful of projects throughout my time at COUNTRY Financial so support the enterprise architecture, app monitoring, and contact center teams.",
+        "The main project I worked on involved designing an end-to-end system to automate authenticating callers in customer support centers using Azure Natural Language Understanding, Azure Speech-to-Text, and Cisco interactive voice response (IVR) systems. Based on initial testing, this application saved over 200 hours/week of manual customer validation. I developed a REST API with Java-based Azure Functions App and a PostgreSQL database to securely stream audio between cloud and on-premise systems and cross-check callers' spoken identifying information."
+      ],
+      "location": "Champaign, IL",
+      "inverted": true
+    },
+    {
+      "company": "NASA",
+      "position": "Software Engineer Intern",
+      "link": "https://nasa.gov/",
+      "image_path": "/static/images/nasa2.png",
+      "start": "June 2020",
+      "end": "August 2020",
+      "description": [
+        "This internship was conducted remotely through NASA Ames Research Center and the Universities Space Research Association (USRA).",
+        "I aided the NASA Aeronatics Research Institute's (NARI) effort to track the effect of COVID-19 on air traffic patterns in the United States. I constructed a data pipeline to consolidate and structure data from JHU, the Opensky Network, FAA, BTS, and NASA's Sherlock Data Warehouse. I also implemented random forest machine learning algorithms to model air traffic in the US and predict air traffic patterns in the future."
+      ],
+      "location": "Mountain View, CA",
+      "inverted": false
+    },
+    {
+      "company": "NASA",
+      "position": "Software Engineer Intern",
+      "link": "https://nasa.gov/",
+      "image_path": "/static/images/nasa2.png",
+      "start": "June 2019",
+      "end": "August 2019",
+      "description": [
+        "This internship was conducted at NASA Ames Research Center in the Intelligent Systems Division through KBR, Inc.",
+        "I led an effort to optimize a modular drone for any task. My team and I implemented the ranking function used to select drones best suited to specified tasks. I also developed a web app allowing users to specify drone missions/tasks and to receive building instructions for the optimal drone.",
+        "As part of this internship, I co-wrote a technical conference paper for AIAA's 2020 Multidisciplinary Design Optimization Forum."
+      ],
+      "location": "Mountain View, CA",
+      "inverted": true
+    }
+  ],
+  "links": {
+    "github": "https://github.com/nkaush",
+    "linkedin": "https://www.linkedin.com/in/neil-kaushikkar/",
+    "instagram": "https://www.instagram.com/neil.kaushikkar/",
+    "gmail": "neil.kaushikkar@gmail.com",
+    "illinois_email": "neilk3@illinois.edu",
+    "website_source": "https://github.com/nkaush/neilkaushikkar.com"
+  },
+  "skills": [
+    {
+      "name": "Rust",
+      "icon": "<img class=\"bg-primary img-circle img-responsive\" src=\"/static/images/rust-primary.png\" alt=\"rust\">",
+      "description": "I've been using the Rust language for 2 years now ever since I was introduced to it in a freshman CS course, and I've enjoyed every single project so far! The strict compile time rules and memory guarantees have been wonderful and have helped me become a better developer. I currently teach Rust to an undergraduate class of around 100 students at UIUC."
+    },
+    {
+      "name": "Java",
+      "icon": "<i class=\"fa icon-java-bold fa-2x\" style=\"padding-top:20px; padding-left:25px\"></i>",
+      "description": "I have years of experience coding in Java. I've developed everything from local single-player games to cloud-based microservices. I have the most experience working with Java and various Azure Cloud services."
+    },
+    {
+      "name": "C/C++",
+      "icon": "<i class=\"fa icon-cplusplus fa-2x\" style=\"padding-top:26px\"></i>",
+      "description": "I have been developing projects in C++ ever since learning the language in my freshman year in college. I've created single-player games, command line utilities, a graph algorithm library, simulations, and more throughout the last couple years. I have since picked up C, as well. I've mostly written command-line utilities and networking code using C."
+    },
+    {
+      "name": "Python",
+      "icon": "<i class=\"fa icon-python fa-2x\" style=\"padding-top:24px; padding-left:12px\"></i>",
+      "description": "Python is the first language I learned about when I began to code in high school. While I consider myself very proficient in the language, I mostly use it nowadays for quick simulations and prototypes, data manipulation scripts, and other short hacky programs."
+    },
+    {
+      "name": "Docker",
+      "icon": "<i class=\"fa icon-docker fa-2x\" style=\"padding-top:24px; padding-left:12px\"></i>",
+      "description": "I used it."
+    },
+    {
+      "name": "Microsoft Azure",
+      "icon": "<img class=\"bg-primary img-circle img-responsive\" src=\"/static/images/azure.png\" alt=\"Microsoft Azure\">",
+      "description": "I used it."
+    }
+  ],
+  "affiliations": [
+    {
+      "link": "http://illinois.edu/",
+      "img": "/static/images/uiuc.png",
+      "alt": "University of Illinois at Urbana-Champaign (UIUC)"
+    },
+    {
+      "link": "https://cs.illinois.edu/",
+      "img": "/static/images/grainger-cs.png",
+      "alt": "CS Department @ the University of Illinois at Urbana-Champaign (UIUC)"
+    },
+    {
+      "link": "https://honors.cs128.org/",
+      "img": "/static/images/128-honors.png",
+      "alt": "CS 128 Honors @ the University of Illinois at Urbana-Champaign (UIUC)"
+    },
+    {
+      "link": "https://giesgroups.illinois.edu/disruptionlab/home/",
+      "img": "/static/images/gies.png",
+      "alt": "Disruption Lab @ the University of Illinois at Urbana-Champaign (UIUC)"
+    },
+    {
+      "link": "http://nasa.gov/",
+      "img": "/static/images/nasa.png",
+      "alt": "NASA"
+    },
+    {
+      "link": "https://www.countryfinancial.com/",
+      "img": "/static/images/country.png",
+      "alt": "COUNTRY Financial"
+    },
+    {
+      "link": "https://www.twilio.com/",
+      "img": "/static/images/twilio-logo-2.png",
+      "alt": "Twilio"
+    }
+  ]
+}
