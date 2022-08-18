@@ -15,26 +15,26 @@
   </head>
   <body>
     <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white mb-0">
-      <a class="navbar-brand ml-5 pl-3" href="#">neil kaushikkar</a>
+      <a class="navbar-brand custom-nav-link ml-5 pl-3" href="#">neil kaushikkar</a>
       <div class="ml-auto order-0">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+        <button class="navbar-toggler nav-bar-button" type="button" data-toggle="collapse" data-target=".dual-collapse2">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
       <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 mr-5">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link active mx-3" href="{{ links.github }}" target="_blank" rel="noopener noreferrer">github</a>
+            <a class="nav-link custom-nav-link active mx-3" href="{{ links.github }}" target="_blank" rel="noopener noreferrer">github</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active mx-3" href="{{ links.linkedin }}" target="_blank" rel="noopener noreferrer">linkedin</a>
+            <a class="nav-link custom-nav-link active mx-3" href="{{ links.linkedin }}" target="_blank" rel="noopener noreferrer">linkedin</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active mx-3" href="/resume" target="_blank" rel="noopener noreferrer">resume</a>
+            <a class="nav-link custom-nav-link active mx-3" href="/resume" target="_blank" rel="noopener noreferrer">resume</a>
           </li>
           <li class="nav-item">
             <form class="mx-3" action="mailto:{{ links.gmail }}" target="_blank" rel="noopener noreferrer">
-              <button class="custom-btn btn-15">hire me</button>
+              <button class="hire-btn">hire me</button>
             </form>
           </li>
         </ul>
@@ -46,6 +46,7 @@
       <p class="introduction-content mt-3">
         I{{{ ssd }}}'{{{ ssde }}}m a computer science student at the University of Illinois at Urbana{{{ ssd }}}-{{{ ssde }}}Champaign {{{ ssd }}}({{{ ssde }}}UIUC{{{ ssd }}}){{{ ssde }}}.
         I currently run the <a class="boxed-link" href="{{ links.cs128h }}" target="_blank" rel="noopener noreferrer">CS 128 Honors</a> course at UIUC where I{{{ ssd }}}'{{{ ssde }}}ve taught the Rust programming language to {{{ ssd }}}~{{{ ssde }}}300 freshman since January 2022. I publish weekly lectures, develop autograded Rust programming homeworks, and manage a course staff of 10 other students. 
+        I have a wide variety of experience from working with large{{{ ssd }}}-{{{ ssde }}}scale web applications to developing high{{{ ssd }}}-{{{ ssde }}}performance low{{{ ssd }}}-{{{ ssde }}}level projects in C and C{{{ ssd }}}++{{{ ssde }}}.
       </p>  
       <p class="introduction-content">
         During my time on the billing engineering team at <a class="boxed-link" href="{{ links.twilio }}" target="_blank" rel="noopener noreferrer">Twilio</a>, I containerized {{{ ssd }}}4{{{ ssde }}} core billing services in production as part of the company{{{ ssd }}}'{{{ ssde }}}s migration from Amazon Linux 1 to AL22. I also developed features on core Scala billing services as requested by the billing operations team.

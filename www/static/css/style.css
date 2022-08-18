@@ -24,9 +24,13 @@ nav {
   border-bottom: 0.3mm solid;
 }
 
-button {
+.nav-bar-button {
   margin: 20px;
   outline: none;
+}
+
+.custom-nav-link:hover {
+  color: rgba(232, 145, 68, 1) !important;
 }
 
 .introduction {
@@ -38,7 +42,7 @@ button {
   font-size: 125%;
 }
 
-.custom-btn {
+.hire-btn {
   width: 100px;
   height: 40px;
   border: 0.3mm solid #000;
@@ -49,15 +53,12 @@ button {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-}
-
-.btn-15 {
   background: #fff;
   color: #000;
   z-index: 1;
 }
 
-.btn-15:after {
+.hire-btn:after {
   position: absolute;
   content: "";
   width: 0;
@@ -69,16 +70,16 @@ button {
   transition: all 0.3s ease;
 }
 
-.btn-15:hover {
+.hire-btn:hover {
   color: #ffffff;
 }
 
-.btn-15:hover:after {
+.hire-btn:hover:after {
   left: 0;
   width: 100%;
 }
 
-.btn-15:active {
+.hire-btn:active {
   top: 2px;
 }
 

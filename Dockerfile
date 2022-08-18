@@ -27,8 +27,8 @@ COPY content.json content.json
 COPY templates/ templates/
 COPY www/ www/ 
 
-EXPOSE 3000
-ENV PORT 3000
+EXPOSE 80
+ENV PORT 80
 
 RUN chmod +x docker-entrypoint.sh
 
