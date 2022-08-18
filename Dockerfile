@@ -3,14 +3,19 @@ FROM alpine:latest as build
 WORKDIR /build
 
 # update the Alpine package manager and install Rust and Cargo
-RUN apk add --no-cache cargo musl-dev
+RUN apk add --no-cache cargo musl-dev openssl-dev
 
-# copy over source code to build stage
-COPY src/ src/
 COPY Cargo.toml Cargo.toml
 
-# Build it!
-RUN cargo build --release 
+# Build all dependencies first
+RUN mkdir src/ \
+    && touch src/lib.rs \
+    && cargo build --release \
+    && rm -rf src/
+
+# Then build the source
+COPY src/ src/
+RUN cargo build --release
 
 FROM alpine:latest as server
 

@@ -9,6 +9,7 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
         .or(resume())
         .or(favicon())
         .or(robots_txt())
+        .or(certbot())
 }
 
 pub fn home() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
@@ -45,4 +46,11 @@ pub fn robots_txt() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
     warp::path("robots.txt")
         .and(warp::get())
         .and(warp::fs::file("robots.txt"))
+}
+
+pub fn certbot() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+    warp::path(".well-known")
+        .and(warp::path("acme-challenge"))
+        .and(warp::get())
+        .and(warp::fs::dir(".well-known/acme-challenge"))
 }

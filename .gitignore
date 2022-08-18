@@ -1,3 +1,6 @@
 # Added by cargo
 /target
 handler
+archive
+certificates
+local.env
