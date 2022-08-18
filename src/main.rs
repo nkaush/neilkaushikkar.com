@@ -1,4 +1,3 @@
-mod helpers;
 mod filters;
 mod handlers;
 
@@ -22,7 +21,7 @@ async fn main() {
     }
     pretty_env_logger::init();
 
-    let api = filters::all_routes();
+    let api = filters::all_routes().recover(handlers::handle_rejection);
 
     // View access logs by setting `RUST_LOG=index`.
     let routes = api.with(warp::log("index"));

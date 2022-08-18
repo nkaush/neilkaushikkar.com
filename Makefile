@@ -1,4 +1,4 @@
-deploy:
+heroku-deploy:
 	git push heroku master
 
 local:
@@ -7,10 +7,10 @@ local:
 clean:
 	cargo clean
 
-shell: 
+heroku-shell: 
 	heroku run bash -a neilkaushikkar
 
-logs:
+heroku-logs:
 	heroku logs --tail
 
 container: 
