@@ -9,46 +9,46 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
         .or(resume())
         .or(favicon())
         .or(robots_txt())
-        .or(certbot())
+        .or(webroot_acme_challenge())
 }
 
-pub fn home() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn home() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path::end()
         .and(warp::get())
         .and_then(handlers::index)
 }
 
-pub fn index() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn index() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path!("index")
         .and(warp::get())
         .and_then(handlers::index)
 }
 
-pub fn serve_static() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn serve_static() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path("static")
         .and(warp::get())
         .and(warp::fs::dir("www/static"))
 }
 
-pub fn resume() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn resume() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path("resume")
         .and(warp::get())
         .and(warp::fs::file("www/static/doc/resume.pdf"))
 }
 
-pub fn favicon() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn favicon() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path("favicon.ico")
         .and(warp::get())
         .and(warp::fs::file("www/static/images/favicon.png"))
 }
 
-pub fn robots_txt() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn robots_txt() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path("robots.txt")
         .and(warp::get())
         .and(warp::fs::file("robots.txt"))
 }
 
-pub fn certbot() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn webroot_acme_challenge() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path(".well-known")
         .and(warp::path("acme-challenge"))
         .and(warp::get())
