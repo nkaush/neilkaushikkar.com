@@ -7,3 +7,4 @@ handler
 archive
 certificates
 local.env
+certbot

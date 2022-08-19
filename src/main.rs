@@ -52,31 +52,37 @@ async fn main() {
     let routes = api.with(warp::log("index"));
 
     // Start up the server...
-    let http_port_key = "PORT";
-    let port: u16 = match env::var(http_port_key) {
-        Ok(val) => val.parse().expect("Custom Handler port is not a number!"),
+    let http_port_key = "HTTP_PORT";
+    let http_port: u16 = match env::var(http_port_key) {
+        Ok(val) => val.parse().expect("HTTP_PORT is not a number!"),
         Err(_) => 3000,
+    };
+
+    let https_port_key = "HTTPS_PORT";
+    let https_port: u16 = match env::var(https_port_key) {
+        Ok(val) => val.parse().expect("HTTPS_PORT is not a number!"),
+        Err(_) => 3001,
     };
 
     match load_secrets().await {
         Ok((key_path, cert_path)) => {
             let (_http_addr, http_warp) = warp::serve(routes.clone())  
-                .bind_ephemeral((Ipv4Addr::UNSPECIFIED, port));
+                .bind_ephemeral((Ipv4Addr::UNSPECIFIED, http_port));
 
             let (_https_addr, https_warp) = warp::serve(routes)
                 .tls()
                 .cert_path(&cert_path)
                 .key_path(&key_path)
-                .bind_ephemeral((Ipv4Addr::UNSPECIFIED, 443));
+                .bind_ephemeral((Ipv4Addr::UNSPECIFIED, https_port));
 
-            println!("Starting HTTP & HTTPS server with TLS");
+            println!("Starting server with TLS");
             future::join(http_warp, https_warp).await;
         },
         Err(e) => {
             println!("Error loading secrets: {}", e);
-            println!("Starting HTTP server without TLS");
+            println!("Starting server without TLS");
             warp::serve(routes)
-                .run(([0, 0, 0, 0], port))
+                .run(([0, 0, 0, 0], http_port))
                 .await;
         }
     }

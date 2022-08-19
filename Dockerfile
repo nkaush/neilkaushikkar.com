@@ -32,8 +32,9 @@ COPY content.json content.json
 COPY templates/ templates/
 COPY www/ www/ 
 
-EXPOSE 80
-ENV PORT 80
+EXPOSE 80 443
+ENV HTTP_PORT 80
+ENV HTTPS_PORT 443
 
 RUN chmod +x docker-entrypoint.sh
 
