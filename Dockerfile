@@ -35,6 +35,7 @@ COPY www/ www/
 EXPOSE 80 443
 ENV HTTP_PORT 80
 ENV HTTPS_PORT 443
+ENV RUST_LOG info
 
 RUN chmod +x docker-entrypoint.sh
 
