@@ -23,7 +23,7 @@ async fn load_secrets() -> Result<(String, String), Box<dyn Error>> {
     let cert_uri = env::var(env_cert_uri)?;
 
     let (key_path, cert_path) = future::join(
-        download_file(&private_key_uri, "private.key"),
+        download_file(&private_key_uri, "privkey.pem"),
         download_file(&cert_uri, "fullchain.pem")
     ).await;
 
@@ -53,7 +53,6 @@ async fn main() {
 
     // Start up the server...
     let http_port_key = "PORT";
-
     let port: u16 = match env::var(http_port_key) {
         Ok(val) => val.parse().expect("Custom Handler port is not a number!"),
         Err(_) => 3000,
@@ -61,13 +60,13 @@ async fn main() {
 
     match load_secrets().await {
         Ok((key_path, cert_path)) => {
-            let (_http_addr, http_warp) = warp::serve(routes.clone())
+            let (_http_addr, http_warp) = warp::serve(routes.clone())  
                 .bind_ephemeral((Ipv4Addr::UNSPECIFIED, port));
 
             let (_https_addr, https_warp) = warp::serve(routes)
                 .tls()
-                .cert_path(cert_path)
-                .key_path(key_path)
+                .cert_path(&cert_path)
+                .key_path(&key_path)
                 .bind_ephemeral((Ipv4Addr::UNSPECIFIED, 443));
 
             println!("Starting HTTP & HTTPS server with TLS");

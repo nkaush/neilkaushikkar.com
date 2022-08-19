@@ -1,5 +1,8 @@
 # Added by cargo
 /target
+Cargo.lock
+
+# Project files
 handler
 archive
 certificates
