@@ -1,11 +1,11 @@
 mod filters;
+mod secrets;
 mod handlers;
 
-use std::{io, env, fs::File, error::Error, net::Ipv4Addr};
-use log::{info, debug};
+use std::{env, net::Ipv4Addr};
 use futures::future;
 use warp::Filter;
-use reqwest;
+use log::info;
 
 static DEFAULT_HTTP_PORT: u16 = 8080;
 static DEFAULT_HTTPS_PORT: u16 = 8443;
@@ -13,30 +13,6 @@ static DEFAULT_HTTPS_PORT: u16 = 8443;
 static ENV_LOG_FILTER: &str = "RUST_LOG";
 static ENV_HTTP_PORT: &str = "HTTP_PORT";
 static ENV_HTTPS_PORT: &str = "HTTPS_PORT";
-static ENV_CERT_LOOKUP: &str = "CERT_LOOKUP";
-static ENV_PRIVATE_KEY_LOOKUP: &str = "PRIVATE_KEY_LOOKUP";
-
-async fn download_file(url: &str, path: &str) -> Result<String, Box<dyn Error>> {
-    debug!("Downloading {} to {}.", url, path);
-    let resp = reqwest::get(url).await?;
-    let body = resp.text().await?;
-    let mut out = File::create(path)?;
-    io::copy(&mut body.as_bytes(), &mut out)?;
-    debug!("Download to {} finished.", path);
-    Ok(path.into())
-}
-
-async fn load_secrets() -> Result<(String, String), Box<dyn Error>> {
-    let cert_uri = env::var(ENV_CERT_LOOKUP)?;
-    let private_key_uri = env::var(ENV_PRIVATE_KEY_LOOKUP)?;
-
-    let (cert_path, key_path) = future::join(
-        download_file(&cert_uri, "fullchain.pem"),
-        download_file(&private_key_uri, "privkey.pem")
-    ).await;
-
-    return Ok((cert_path?, key_path?));
-}
 
 /// Provides a RESTful web server managing some Todos.
 ///

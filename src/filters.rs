@@ -45,7 +45,7 @@ fn favicon() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection>
 fn robots_txt() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path("robots.txt")
         .and(warp::get())
-        .and(warp::fs::file("robots.txt"))
+        .and(warp::fs::file("www/robots.txt"))
 }
 
 fn webroot_acme_challenge() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
