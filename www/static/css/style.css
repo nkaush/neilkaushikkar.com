@@ -83,24 +83,6 @@ nav {
   top: 2px;
 }
 
-/* Style 1 */
-/* .boxed-link {
-  box-shadow: inset 0 0 0 0 #000;
-  color: #000;
-  text-decoration: underline;
-  text-decoration-thickness: 0.3mm;
-  text-underline-position: under;
-  display: inline-block;
-}
-
-.boxed-link:hover {
-  box-shadow: inset 300px 0 0 0 #000;
-  color: white;
-  text-decoration: none;
-  display: inline-block;
-} */
-
-/* Style 2 */
 .boxed-link {
   color: #000;
   text-decoration: none;
@@ -130,4 +112,67 @@ nav {
   color: #000;
   bottom: 0;
   height: 100%;
+}
+
+.project-card {
+  width: 100%;
+  height: 425px;
+  background-color: #eee;
+  color: #000;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  color: #fff;
+  background-color: rgba(232, 145, 68, 0.75);
+  transition: all .3s ease-in-out;
+}
+
+.image-overlay::content {
+  position: absolute;
+  top: 0px;
+  bottom: 0;
+  left: 15px;
+  right: 0;
+  height: 100%;
+  width: -webkit-calc(100% - 30px);
+  opacity: 0;
+  -webkit-transition: .4s ease;
+  transition: .4s ease;
+  background-color: #42776a;
+  z-index: 0;
+}
+
+.card-image {
+  max-width: 70%;
+  margin: auto;
+  position: absolute;
+  left: 50%;    
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.card-image-img {
+  width: 100%; 
+  height: 100%; 
+}
+
+.image-overlay-text {
+  padding-top: 40px;
+  padding-left: 40px;
+  /* max-width: 75%; */
+  line-height: 1;
+}
+
+.project-company {
+  font-family: antebas;
+  position: relative;
+  font-size: 16pt;
+  bottom: 3px;
+}
+
+.project-title {
+  font-family: antebas-bold;
+  font-size: 20pt;
 }

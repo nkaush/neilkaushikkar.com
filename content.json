@@ -13,5 +13,37 @@
     "cs128h": "https://honors.cs128.org/",
     "twilio": "https://www.twilio.com/",
     "burd_paper": "https://arc.aiaa.org/doi/10.2514/6.2020-3154"
-  }
+  },
+  "experiences": [
+    {
+      "company": "University of Illinois",
+      "project": "CS 128 Honors Instructor",
+      "image": "/static/images/cs128.png"
+    },
+    {
+      "company": "Twilio",
+      "project": "AL22 Containerization",
+      "image": "/static/images/AL22.png"
+    },
+    {
+      "company": "Twilio",
+      "project": "Internal Billing Tools",
+      "image": "/static/images/twilio.png"
+    },
+    {
+      "company": "COUNTRY Financial",
+      "project": "Automated Customer Verification",
+      "image": "/static/images/luis.png"
+    },
+    {
+      "company": "COUNTRY Financial",
+      "project": "Enterprise Architecture Revamp",
+      "image": "/static/images/azure.png"
+    },
+    {
+      "company": "NASA",
+      "project": "Broad Use Reconfigurable Drones",
+      "image": "/static/images/nasa.png"
+    }
+  ]
 }

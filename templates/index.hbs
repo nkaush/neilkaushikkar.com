@@ -14,9 +14,47 @@
       </p>
     </div>
 
-    <div class="container mt-5 pt-5">
+    <div class="container my-5 pt-5">
       <h2 class="introduction">Featured Work.</h2>
-      <p>Coming soon...</p>
+      <!--ROW BEGIN-->
+      <div class="row my-2">
+        <!-- EXPERIENCE BEGIN -->
+        {{#each experiences}}
+        <div class="col-lg-6 col-sm-12 my-3">
+          <div class="project-card" id="project-0" data-toggle="modal" data-target="#exampleModalCenter">
+            <div class="image-overlay">
+              <div class="image-overlay-text">
+                <p class="project-company mb-0">{{ this.company }}</p>
+                <p class="project-title">{{ this.project }}</p>
+              </div>
+            </div>
+            <div class="card-image" style="overflow: hidden; max-height: 85%;">
+              <img class="card-image-img" src="{{ this.image }}">
+            </div>
+          </div>
+        </div>
+        <!-- EXPERIENCE END -->
+        {{/each}}
+      </div>
+      <!--ROW END-->
     </div>
+
+    <!-- MODAL BEGIN -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Coming Soon...</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MODAL END -->
 {{/inline}}
 {{> base }}

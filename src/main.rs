@@ -90,7 +90,7 @@ async fn main() {
             info!("Starting server without TLS.");
             info!("Listening on port {}...", http_port);
             warp::serve(routes)
-                .run(([0, 0, 0, 0], http_port))
+                .run((Ipv4Addr::UNSPECIFIED, http_port))
                 .await;
         }
     }
