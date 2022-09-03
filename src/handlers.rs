@@ -1,38 +1,6 @@
 use warp::{Reply, reply, Rejection, reject, http::StatusCode, filters::body};
-use std::convert::Infallible;
-use serde_json::{Value, Map};
-use handlebars::Handlebars;
+use std::{convert::Infallible, fs::read_to_string};
 use serde::Serialize;
-
-lazy_static::lazy_static! {
-    static ref DESERIALIZED_DATA: Value = {
-        let json: String = std::fs::read_to_string("content.json").unwrap();
-        serde_json::from_str(&json).unwrap()
-    };
-
-    static ref HOME: String = {
-        let mut h = Handlebars::new();
-        h.register_template_file("index", "templates/index.hbs").unwrap();
-        h.register_template_file("base", "templates/base.hbs").unwrap();
-        let map: &Map<String, Value> = DESERIALIZED_DATA.as_object().unwrap();
-
-        h.render("index", map).unwrap()
-    };
-
-    static ref E404: String = {
-        let mut h = Handlebars::new();
-        h.register_template_file("404", "templates/404.hbs").unwrap();
-        h.register_template_file("base", "templates/base.hbs").unwrap();
-        let map: &Map<String, Value> = DESERIALIZED_DATA.as_object().unwrap();
-
-        h.render("404", map).unwrap()
-    };
-}
-
-/// GET /index
-pub async fn index() -> Result<impl Reply, Infallible> {    
-    Ok(reply::with_status(reply::html(HOME.clone()), StatusCode::OK))
-}
 
 /// An API error serializable to JSON.
 #[derive(Serialize)]
@@ -46,7 +14,8 @@ pub async fn handle_rejection(err: Rejection) -> Result<impl Reply, Infallible> 
     let message;
 
     if err.is_not_found() {
-        return Ok(reply::with_status(reply::html(E404.clone()), StatusCode::NOT_FOUND));
+        let e404 = read_to_string("templates/generated/404.html").unwrap();
+        return Ok(reply::with_status(reply::html(e404), StatusCode::NOT_FOUND));
     } else if let Some(_e) = err.find::<body::BodyDeserializeError>() {
         // This error happens if the body could not be deserialized correctly
         // We can use the cause to analyze the error and customize the error message

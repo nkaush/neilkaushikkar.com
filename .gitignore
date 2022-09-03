@@ -8,3 +8,5 @@ archive
 certificates
 local.env
 certbot
+
+templates/generated

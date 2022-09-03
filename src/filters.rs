@@ -1,4 +1,3 @@
-use super::handlers;
 use warp::Filter;
 
 /// combine all routes
@@ -15,13 +14,13 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
 fn home() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path::end()
         .and(warp::get())
-        .and_then(handlers::index)
+        .and(warp::fs::file("templates/generated/index.html"))
 }
 
 fn index() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path!("index")
         .and(warp::get())
-        .and_then(handlers::index)
+        .and(warp::fs::file("templates/generated/index.html"))
 }
 
 fn serve_static() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
@@ -45,7 +44,7 @@ fn favicon() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection>
 fn robots_txt() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path("robots.txt")
         .and(warp::get())
-        .and(warp::fs::file("robots.txt"))
+        .and(warp::fs::file("www/robots.txt"))
 }
 
 fn webroot_acme_challenge() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
