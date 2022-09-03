@@ -4,24 +4,20 @@
       <h2 class="introduction">Hey, I{{{ ssd }}}'{{{ ssde }}}m Neil {{{ ssd }}}-{{{ ssde }}} A Software Engineer<br>from San Francisco.</h2>
       <p class="introduction-content mt-3">
         I{{{ ssd }}}'{{{ ssde }}}m a computer science student at the University of Illinois at Urbana{{{ ssd }}}-{{{ ssde }}}Champaign {{{ ssd }}}({{{ ssde }}}UIUC{{{ ssd }}}){{{ ssde }}}.
-        I currently run the <a class="boxed-link" href="{{ links.cs128h }}" target="_blank" rel="noopener noreferrer">CS 128 Honors</a> course at UIUC where I{{{ ssd }}}'{{{ ssde }}}ve taught the Rust programming language to {{{ ssd }}}~{{{ ssde }}}300 freshman since January 2022. I publish weekly lectures, develop autograded Rust programming homeworks, and manage a course staff of 10 other students. 
-        I have a wide variety of experience from working with large{{{ ssd }}}-{{{ ssde }}}scale web applications to developing high{{{ ssd }}}-{{{ ssde }}}performance low{{{ ssd }}}-{{{ ssde }}}level projects in C and C{{{ ssd }}}++{{{ ssde }}}.
-      </p>  
-      <p class="introduction-content">
-        During my time on the billing engineering team at <a class="boxed-link" href="{{ links.twilio }}" target="_blank" rel="noopener noreferrer">Twilio</a>, I containerized {{{ ssd }}}4{{{ ssde }}} core billing services in production as part of the company{{{ ssd }}}'{{{ ssde }}}s migration from Amazon Linux 1 to AL22. I also developed features on core Scala billing services as requested by the billing operations team.
-        At Country Financial, I assisted the <a class="boxed-link" href="{{ links.cf_article }}" target="_blank" rel="noopener noreferrer">Enterprise Architecture team</a> in migrating Spring Boot applications from on{{{ ssd }}}-{{{ ssde }}}premise hosting to Azure Cloud. I also developed a system to automatically verify callers using voice recognition to save over 200 hours of manual client verification in company call centers.
-        While at NASA Ames Research Center, I worked on an effort under Dr. Parimal Kopardekar to find the optimal configuration of a modular drone for any specified task and co{{{ ssd }}}-{{{ ssde }}}authored a <a class="boxed-link" href="{{ links.burd_paper }}" target="_blank" rel="noopener noreferrer">conference paper</a> on our research. 
+        I currently run the <a class="boxed-link" href="{{ links.cs128h }}" target="_blank" rel="noopener noreferrer">CS 128 Honors</a> course at UIUC where I{{{ ssd }}}'{{{ ssde }}}ve taught the Rust programming language to {{{ ssd }}}~{{{ ssde }}}300 freshman since January 2022. 
+        I{{{ ssd }}}'{{{ ssde }}}ve worked on countless Scala{{{ ssd }}}/{{{ ssde }}}Java{{{ ssd }}}/{{{ ssde }}}Rust{{{ ssd }}}/{{{ ssde }}}Python HTTP{{{ ssd }}}/{{{ ssde }}}REST applications, developed high{{{ ssd }}}-{{{ ssde }}}performance low{{{ ssd }}}-{{{ ssde }}}level projects in C and C{{{ ssd }}}++{{{ ssde }}}, and have lots of experience working with unfamiliar large{{{ ssd }}}-{{{ ssde }}}scale codebases while learning programming languages and technologies on the fly.
+        You can view my resume, LinkedIn, and GitHub above and learn more about some of my work below.
       </p>
     </div>
 
-    <div class="container my-5 pt-5">
+    <div class="container my-3 pt-5">
       <h2 class="introduction">Featured Work.</h2>
       <!--ROW BEGIN-->
       <div class="row my-2">
         <!-- EXPERIENCE BEGIN -->
         {{#each experiences}}
         <div class="col-lg-6 col-sm-12 my-3">
-          <div class="project-card" id="project-0" data-toggle="modal" data-target="#exampleModalCenter">
+          <div class="project-card" id="project-0" data-toggle="modal" data-target="#{{ this.modal_id }}">
             <div class="image-overlay">
               <div class="image-overlay-text">
                 <p class="project-company mb-0">{{ this.company }}</p>
@@ -38,23 +34,11 @@
       </div>
       <!--ROW END-->
     </div>
-
-    <!-- MODAL BEGIN -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Coming Soon...</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- MODAL END -->
+    {{> al22_modal ssd=ssd ssde=ssde }}
+    {{> cs128h_modal ssd=ssd ssde=ssde }}
+    {{> twilio_modal ssd=ssd ssde=ssde }}
+    {{> burd_modal ssd=ssd ssde=ssde }}
+    {{> luis_modal ssd=ssd ssde=ssde }}
+    {{> cf_ea_modal ssd=ssd ssde=ssde }}
 {{/inline}}
 {{> base }}

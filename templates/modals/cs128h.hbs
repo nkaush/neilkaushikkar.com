@@ -1,0 +1,40 @@
+    <div class="modal fade" id="cs128h" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 960px; margin: auto;">
+        <div class="modal-content" style="position: absolute; inset: 40px 0px 0px; border: 0px; background: rgb(255, 255, 255); overflow: auto; border-radius: 0px; outline: none; padding: 0px; z-index: 900;">
+          <div class="project-modal-body">
+            <div class="modal-exit-btn">
+              <button type="button" class="close mt-1 mr-2" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-text-top">
+              <div style="line-height: 1;">
+                <p class="project-company mb-0">University of Illinois</p>
+                <p class="project-title">CS 128 Honors Instructor</p>
+              </div>
+              <p class="modal-text">
+                I currently run the <a class="boxed-link" href="{{ links.cs128h }}" target="_blank" rel="noopener noreferrer">CS 128 Honors</a> course at UIUC where I{{{ ssd }}}'{{{ ssde }}}ve taught the Rust programming language to {{{ ssd }}}~{{{ ssde }}}300 freshman since January 2022. I publish weekly lectures, develop autograded Rust programming homeworks, and manage a course staff of 10 other students.
+                The course runs in parallel to an introductory course that teaches C{{{ ssd }}}++{{{ ssde }}}. It aims to teach memory safety, parallelism {{{ ssd }}}&#38;{{{ ssde }}} concurrency, functional programming, and more through the lens of the Rust programming language while students learn similar concepts in C{{{ ssd }}}++{{{ ssde }}} in the introductory course.
+              </p>
+              <p class="modal-text">
+                Since January, I{{{ ssd }}}'{{{ ssde }}}ve been delivering weekly lectures covering various concepts from Rust syntax to generics {{{ ssd }}}&#38;{{{ ssde }}} templating to thread{{{ ssd }}}-{{{ ssde }}}safety. 
+                I have also developed programming assignments such as a Rust rendition of MapReduce or a Rust implementation of the K{{{ ssd }}}-{{{ ssde }}}Nearest Neighbors algorithm to expose students to well{{{ ssd }}}-{{{ ssde }}}known algorithms in computer science while also giving students extra practice programming in Rust.
+              </p>
+              <p class="modal-text">
+                Here are a few of my lectures from the past year. You can view the full playlist of lectures by semester on YouTube:
+                <ul style="margin-top: -15px;" class="modal-text">
+                  <li><a class="boxed-link" href="https://youtube.com/playlist?list=PLezlz_6l_jm2MU-yfzKWerZV1rai71bw4" target="_blank" rel="noopener noreferrer">Spring 2022</a></li>
+                  <li><a class="boxed-link" href="https://youtube.com/playlist?list=PLezlz_6l_jm1ckUqSnExg1zl_JeT78A1g" target="_blank" rel="noopener noreferrer">Fall 2022</a></li>
+                </ul>
+              </p>
+              {{#each cs128h_vids}}
+                <h3 class="project-company mt-4">{{ this.title }}</h3>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe src="{{ this.link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>              
+                {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
