@@ -9,4 +9,6 @@ certificates
 local.env
 certbot
 
+.DS_Store
+
 templates/generated

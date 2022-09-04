@@ -1,10 +1,16 @@
 [package]
-name = "handler"
+name = "webserver"
 version = "0.1.0"
 authors = ["Neil Kaushikkar <neil.kaushikkar@gmail.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
+panic = "abort"
 
 [dependencies]
 warp = { version = "0.3", features = ["tls"] }
@@ -16,5 +22,4 @@ pretty_env_logger = "0.4.0"
 handlebars = "4.1.1"
 serde_derive = "1.0.117"
 serde_json = "1.0.59"
-lazy_static = "*"
 futures = "*"

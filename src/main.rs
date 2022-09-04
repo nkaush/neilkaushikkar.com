@@ -1,8 +1,5 @@
-mod filters;
-mod content;
-mod handlers;
-
 use std::{io, env, fs::File, error::Error, net::Ipv4Addr};
+use webserver::{filters, handlers};
 use log::{info, debug};
 use futures::future;
 use warp::Filter;
@@ -39,29 +36,6 @@ async fn load_secrets() -> Result<(String, String), Box<dyn Error>> {
     return Ok((cert_path?, key_path?));
 }
 
-fn load_templates() -> Result<(), Box<dyn Error>> {
-    let mut content = content::Content::init("content.json");
-    content.register_template("base", "templates/base.hbs")?;
-    content.register_template("index", "templates/index.hbs")?;
-    content.register_template("404", "templates/404.hbs")?;
-
-    content.register_template("al22_modal", "templates/modals/al22.hbs")?;
-    content.register_template("cs128h_modal", "templates/modals/cs128h.hbs")?;
-    content.register_template("twilio_modal", "templates/modals/twilio.hbs")?;
-    content.register_template("burd_modal", "templates/modals/burd.hbs")?;
-    content.register_template("luis_modal", "templates/modals/luis.hbs")?;
-    content.register_template("cf_ea_modal", "templates/modals/cf-ea-revamp.hbs")?;
-
-    match std::fs::remove_dir_all("templates/generated") {
-        Ok(_) => info!("Removed old generaetd templates."),
-        Err(_) => info!("Old generated templates do not exist.")
-    };
-    std::fs::create_dir("templates/generated")?;
-    content.generate("index", "templates/generated/index.html")?;
-    content.generate("404", "templates/generated/404.html")?;
-    Ok(())
-}
-
 /// Provides a RESTful web server managing some Todos.
 ///
 /// API will be:
@@ -77,8 +51,6 @@ async fn main() {
         env::set_var(ENV_LOG_FILTER, "info");
     }
     pretty_env_logger::init();
-
-    load_templates().unwrap();
 
     let api = filters::all_routes().recover(handlers::handle_rejection);
 
