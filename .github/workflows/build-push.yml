@@ -1,10 +1,13 @@
-name: ci
+name: build-push
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - 'master'
 
 jobs:
-  docker:
+  docker-build-and-push:
     runs-on: ubuntu-latest
     steps:
       -
@@ -28,3 +31,19 @@ jobs:
           tags: neilk3/website:latest
           cache-from: type=registry,ref=neilk3/website:latest
           cache-to: type=inline
+  azure-restart-container:
+    runs-on: ubuntu-latest
+    # See for login details: https://github.com/Azure/login#configure-deployment-credentials
+    steps:
+      - 
+        name: Azure Login
+        uses: azure/login@v1
+        with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - 
+        name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.30.0
+          inlineScript: |
+            az container restart --name ${{ secrets.AZURE_CONTAINER }} --resource-group ${{ secrets.AZURE_RG }}
