@@ -17,19 +17,10 @@ RUN mkdir -p src/bin \
 COPY src/ src/
 RUN cargo build --release
 
-FROM alpine:3.16 as template_generator
-
-WORKDIR /build
-
-RUN apk add --no-cache libgcc
-
-# Copy over template generator executable from the build stage
-COPY --from=build /build/target/release/template_generator template_generator
-
+# Copy over templates and generate the static files
 COPY content.json content.json
 COPY templates templates
-
-RUN ./template_generator
+RUN cargo run --release --bin template_generator
 
 FROM alpine:3.16 as server
 
@@ -38,7 +29,7 @@ WORKDIR /service
 RUN apk add --no-cache libgcc
 
 # Copy over the generated templates
-COPY --from=template_generator /build/templates/generated/ templates/generated/
+COPY --from=build /build/templates/generated/ templates/generated/
 
 # Copy over server executable from the build stage
 COPY --from=build /build/target/release/webserver webserver
