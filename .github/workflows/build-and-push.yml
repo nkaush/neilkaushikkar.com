@@ -23,5 +23,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
+          platforms: linux/amd64,linux/arm64
           push: true
-          tags: user/app:latest
+          tags: neilk3/website:latest
+          cache-from: type=registry,ref=neilk3/website:latest
+          cache-to: type=inline
