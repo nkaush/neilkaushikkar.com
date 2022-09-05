@@ -56,6 +56,12 @@
       "modal_id": "twilio"
     },
     {
+      "company": "Personal Project",
+      "project": "Flask Inspired C Web Server",
+      "image": "/static/images/freebsd.png",
+      "modal_id": "kqueue"
+    },
+    {
       "company": "COUNTRY Financial",
       "project": "Automated Customer Verification",
       "image": "/static/images/luis.png",

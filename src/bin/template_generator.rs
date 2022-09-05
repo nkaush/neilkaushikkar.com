@@ -14,6 +14,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     content.register_template("al22_modal", "templates/modals/al22.hbs")?;
     content.register_template("cs128h_modal", "templates/modals/cs128h.hbs")?;
     content.register_template("twilio_modal", "templates/modals/twilio.hbs")?;
+    content.register_template("kqueue_modal", "templates/modals/kqueue.hbs")?;
     content.register_template("burd_modal", "templates/modals/burd.hbs")?;
     content.register_template("luis_modal", "templates/modals/luis.hbs")?;
     content.register_template("cf_ea_modal", "templates/modals/cf-ea-revamp.hbs")?;

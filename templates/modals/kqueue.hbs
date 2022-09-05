@@ -1,0 +1,95 @@
+    <div class="modal fade" id="kqueue" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 960px; margin: auto;">
+        <div class="modal-content" style="position: absolute; inset: 40px 0px 0px; border: 0px; background: rgb(255, 255, 255); overflow: auto; border-radius: 0px; outline: none; padding: 0px; z-index: 900;">
+          <div class="project-modal-body">
+            <div class="modal-exit-btn">
+              <button type="button" class="close mt-1 mr-2" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-text-top">
+              <div style="line-height: 1;">
+                <p class="project-company mb-0">Personal Project</p>
+                <p class="project-title">Flask{{{ ssd }}}-{{{ ssde }}}Inspired C Web Server</p>
+              </div>
+              <p class="modal-text">
+                I built a web server in C that is inspired by the Flask web framework for Python{{{ ssd }}}-{{{ ssde }}}based web servers. 
+                It takes inspiration from Flask{{{ ssd }}}'{{{ ssde }}}s function annotation route definitions. 
+                I built this project to learn more about the <a class="boxed-link" href="https://www.freebsd.org/cgi/man.cgi?query=kqueue&sektion=2" target="_blank" rel="noopener noreferrer">kqueue</a> interface and non{{{ ssd }}}-{{{ ssde }}}blocking IO in the C programming language and to better understand how web servers work.
+                You can view the source code of the project <a class="boxed-link" href="https://github.com/nkaush/c-web-server" target="_blank" rel="noopener noreferrer">on GitHub</a>. 
+              </p>
+              <p class="modal-text">
+                The kqueue interface is a kernel event notification mechanism supported on FreeBSD systems. 
+                However, the primary reason I picked the interface is because it is also supported on MacOSX systems. There are alternatives like the <a class="boxed-link" href="https://man7.org/linux/man-pages/man7/epoll.7.html" target="_blank" rel="noopener noreferrer">epoll</a> system call interface, but epoll is only supported on Linux. 
+                I wanted to write a web server that could run natively on my Macbook. There is an interface called <a class="boxed-link" href="https://libevent.org/" target="_blank" rel="noopener noreferrer">libevent</a> that abstracts away the differences between the kqueue, epoll, and other non{{{ ssd }}}-{{{ ssde }}}blocking IO interfaces, but I wanted to learn more about the kqueue interface and interact with all of the system calls directly. 
+              </p>
+              <p class="modal-text">
+                Since C is shipped without any native data structures, I also had to implement a few data structures from scratch. I implemented the hashset, hashmap, vector, and bitvector data structures in C to become more intimately familiar with the data structures and to continue the theme of avoiding external libraries. 
+                I also built a custom n{{{ ssd }}}-{{{ ssde }}}ary tree data structure to store the routes for the web server so that the server can efficienty look up variable routes with route parameters. 
+                For those unfamiliar, route parameters are routes that have query parameters built into the URL. Take GitHub, for example. You can look up any GitHub repository with the route <code>/&lt;username&gt;/&lt;repo{{{ ssd }}}-{{{ ssde }}}name&gt;/</code>. 
+                To look up the source code for my web server, you would go to <a class="boxed-link" href="https://github.com/nkaush/c-web-server" target="_blank" rel="noopener noreferrer">https{{{ ssd }}}://{{{ ssde }}}github.com{{{ ssd }}}/{{{ ssde }}}nkaush{{{ ssd }}}/{{{ ssde }}}c{{{ ssd }}}-{{{ ssde }}}web{{{ ssd }}}-{{{ ssde }}}server{{{ ssd }}}/{{{ ssde }}}</a> since my GitHub username is <code>nkaush</code> and the repository is called <code>c-web-server</code>. 
+                Both the username and repository name are route parameters since they can vary for different users and different repositories. 
+              </p>
+              <p class="modal-text">
+                The interface for the server is very simple. There are only 3 functions that you need to call to get a web server up and running. There are a lot of constants, but that is expected with the HTTP protocol.
+                <ul style="margin-top: -15px;" class="modal-text">
+                  <li><code>void server_init(char* port)</code> initializes the web server on the specified port.</li>
+                  <li><code>void server_register_route(http_method http_method, char* route, route_handler_t handler)</code> defines a route for the web server. The callback function <code>handler</code> is called when the method and route passed into the function definition are requested.</li>
+                  <li><code>void server_launch(void)</code> starts the web server.</li>
+                </ul>
+              </p>
+              <p class="modal-text">
+                Here is what the a basic Flask application could look like:
+              </p>
+              <div class="embed-responsive embed-responsive-21by9">
+                <iframe
+                  class="embed-responsive-item"
+                  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=panda-syntax&wt=none&l=python&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=from%2520flask%2520import%2520Flask%250A%250Aapp%2520%253D%2520Flask%28__name__%29%250A%250A%2540app.route%28%27%252F%27%29%250Adef%2520hello%28%29%253A%250A%2520%2520%2520%2520return%2520%27Hello%252C%2520World%21%27"
+                  sandbox="allow-scripts allow-same-origin">
+                </iframe>
+              </div>
+              <p class="modal-text">
+                This is the equivalent with my web server interface:
+              </p>
+              <div class="embed-responsive embed-responsive-21by9">
+                <iframe
+                  class="embed-responsive-item"
+                  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=panda-syntax&wt=none&l=text%2Fx-csrc&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523include%2520%2522server.h%2522%250A%2523include%2520%253Cerr.h%253E%250A%250Aresponse_t*%2520hello%28request_t*%2520request%29%2520%257B%250A%2520%2520%2520%2520return%2520response_from_string%28STATUS_OK%252C%2520%2522Hello%252C%2520World%21%2522%29%253B%250A%257D%250A%250Aint%2520main%28int%2520argc%252C%2520char**%2520argv%29%2520%257B%250A%2509if%2520%28argc%2520%21%253D%25202%29%250A%2520%2520%2520%2520%2520%2520%2520%2520errx%28EXIT_FAILURE%252C%2520%2522.%252Fserver%2520%253Cport%253E%2522%29%253B%250A%250A%2520%2520%2520%2520server_init%28argv%255B1%255D%29%253B%250A%2520%2520%2520%2520server_register_route%28HTTP_GET%252C%2520%2522%252F%2522%252C%2520hello%29%253B%2520%2520%2520%2520%250A%2520%2520%2520%2520server_launch%28%29%253B%250A%257D"
+                  sandbox="allow-scripts allow-same-origin">
+                </iframe>
+              </div>
+              <p class="modal-text">
+                Requested routes that do not match any of the registered routes be answered with default appropriate HTTP responses. 
+                If a route is defined but the method requested does not match the defined methods, the server will respond with a <code>405 Method Not Allowed</code> response. 
+                If a requested route simply does not exist, the server will respond with a <code>404 Not Found</code> response. 
+                The default responses are JSON strings with the status code and a simple message included, but they can be changed by defining a custom route handler callback function for each type of error. 
+              </p>
+              <p class="modal-text">
+                The server has capitalizes on some advanced browser features for file caching. 
+                If the server is configured to serve a static file, it will include headers so that the browser can cache the file. 
+                The server will respond with the contents of the file only if the file has been modified after the browser has recieved a copy of the file. 
+              </p>
+              <p class="modal-text">
+                The web server is in no means production{{{ ssd }}}-{{{ ssde }}}ready. It is a only a proof of concept at the moment. The server struggles with handling upwards of 1000 concurrent connections.
+                The server only runs on a single thread, so accepting a connection from a client and handling a portion of the IO that can be acted upon is all done on a single thread in a single cycle of a loop. 
+                As the number of clients that must be served increases, the time taken to handle each client and accept a single connection increases. 
+                I am currently working on a fix that accepts clients and adds them to a queue of clients to be served on a different thread. 
+                However, there are some nuances that arise from the blocking-nature of kqueue and the absence of a wakeup mechanism.
+                My multi{{{ ssd }}}-{{{ ssde }}}threaded solution is currently in progress, but it is messy and relies on a hacky busy waiting solution.
+                However, the server works very well when handling fewer than 500 concurrent connections. It can serve files and static content very efficienty. 
+              </p>
+              <p class="modal-text">
+                Here is a basic example of how to use the web server:
+              </p>
+              <div class="embed-responsive embed-responsive-1by1">
+                <iframe
+                  class="embed-responsive-item"
+                  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=panda-syntax&wt=none&l=text%2Fx-csrc&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523include%2520%2522server.h%2522%250A%2523include%2520%253Cerr.h%253E%250A%250Aresponse_t*%2520favicon%28request_t*%2520request%29%2520%257B%250A%2520%2520%2520%2520response_t*%2520r%2520%253D%2520response_from_file%28STATUS_OK%252C%2520fopen%28%2522.%252Ffavicon.png%2522%252C%2520%2522r%2522%29%29%253B%250A%2520%2520%2520%2520response_set_content_type%28r%252C%2520CONTENT_TYPE_PNG%29%253B%250A%250A%2520%2520%2520%2520return%2520r%253B%250A%257D%250A%250Aresponse_t*%2520test_handler%28request_t*%2520request%29%2520%257B%250A%2520%2520%2509%252F%252F%2520Request%2520handling%2520here...%250A%2520%2520%250A%2520%2520%2509%252F%252F%2520---------%2520SNIP%2520---------%250A%2520%2520%2509%250A%2520%2520%2520%2520response_t*%2520r%2520%253D%2520response_from_string%28STATUS_OK%252C%2520%2522%257B%255C%2522response%255C%2522%253A%255C%2522uploaded%255C%2522%257D%2522%29%253B%250A%2520%2520%2520%2520response_set_content_type%28r%252C%2520CONTENT_TYPE_JSON%29%253B%250A%250A%2520%2520%2520%2520return%2520r%253B%250A%257D%250A%250Aint%2520main%28int%2520argc%252C%2520char**%2520argv%29%2520%257B%250A%2509if%2520%28argc%2520%21%253D%25202%29%250A%2520%2520%2520%2520%2520%2520%2520%2520errx%28EXIT_FAILURE%252C%2520%2522.%252Fserver%2520%253Cport%253E%2522%29%253B%250A%250A%2520%2520%2520%2520server_init%28argv%255B1%255D%29%253B%250A%250A%2520%2520%2520%2520server_register_route%28HTTP_POST%252C%2520%2522%252Fv1%252Fapi%252Ftest%2522%252C%2520api_handler%29%253B%250A%2520%2520%2520%2520server_register_route%28HTTP_GET%252C%2520%2522%252Ffavicon.ico%2522%252C%2520favicon%29%253B%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520server_launch%28%29%253B%250A%257D"
+                  sandbox="allow-scripts allow-same-origin">
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
