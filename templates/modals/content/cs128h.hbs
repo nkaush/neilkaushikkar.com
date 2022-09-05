@@ -1,17 +1,7 @@
-    <div class="modal fade" id="cs128h" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 960px; margin: auto;">
-        <div class="modal-content" style="position: absolute; inset: 40px 0px 0px; border: 0px; background: rgb(255, 255, 255); overflow: auto; border-radius: 0px; outline: none; padding: 0px; z-index: 900;">
-          <div class="project-modal-body">
-            <div class="modal-exit-btn">
-              <button type="button" class="close mt-1 mr-2" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-text-top">
-              <div style="line-height: 1;">
-                <p class="project-company mb-0">University of Illinois</p>
-                <p class="project-title">CS 128 Honors Instructor</p>
-              </div>
+{{#*inline "company_name"}}University of Illinois{{/inline}}
+{{#*inline "project_name"}}CS 128 Honors Instructor{{/inline}}
+{{#*inline "modal_id"}}cs128h{{/inline}}
+{{#*inline "modal_content"}}
               <p class="modal-text">
                 I currently run the <a class="boxed-link" href="{{ links.cs128h }}" target="_blank" rel="noopener noreferrer">CS 128 Honors</a> course at UIUC where I{{{ ssd }}}'{{{ ssde }}}ve taught the Rust programming language to {{{ ssd }}}~{{{ ssde }}}300 freshman since January 2022. I publish weekly lectures, develop autograded Rust programming homeworks, and manage a course staff of 10 other students.
                 The course runs in parallel to an introductory course that teaches C{{{ ssd }}}++{{{ ssde }}}. It aims to teach memory safety, parallelism {{{ ssd }}}&#38;{{{ ssde }}} concurrency, functional programming, and more through the lens of the Rust programming language while students learn similar concepts in C{{{ ssd }}}++{{{ ssde }}} in the introductory course.
@@ -30,11 +20,8 @@
               {{#each cs128h_vids}}
                 <h3 class="project-company mt-4">{{ this.title }}</h3>
                 <div class="embed-responsive embed-responsive-16by9">
-                  <iframe class="embed-responsive-item" src="{{ this.link }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <iframe loading="lazy" class="embed-responsive-item" src="{{ this.link }}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>              
               {{/each}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+{{/inline}}
+{{> text-modal-base }}

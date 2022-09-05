@@ -15,12 +15,14 @@ fn home() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + 
     warp::path::end()
         .and(warp::get())
         .and(warp::fs::file("templates/generated/index.html"))
+        .with(warp::compression::gzip())
 }
 
 fn index() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
     warp::path!("index")
         .and(warp::get())
         .and(warp::fs::file("templates/generated/index.html"))
+        .with(warp::compression::gzip())
 }
 
 fn serve_static() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {

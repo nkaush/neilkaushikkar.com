@@ -1,0 +1,20 @@
+    <div class="modal fade" id="{{> modal_id }}" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 960px; margin: auto;">
+        <div class="modal-content" style="position: absolute; inset: 40px 0px 0px; border: 0px; background: rgb(255, 255, 255); overflow: auto; border-radius: 0px; outline: none; padding: 0px; z-index: 900;">
+          <div class="project-modal-body">
+            <div class="modal-exit-btn">
+              <button type="button" class="close mt-1 mr-2" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-text-top">
+              <div style="line-height: 1;">
+                <p class="project-company mb-0">{{> company_name }}</p>
+                <p class="project-title">{{> project_name }}</p>
+              </div>
+{{> modal_content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

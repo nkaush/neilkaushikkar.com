@@ -1,17 +1,7 @@
-    <div class="modal fade" id="kqueue" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 960px; margin: auto;">
-        <div class="modal-content" style="position: absolute; inset: 40px 0px 0px; border: 0px; background: rgb(255, 255, 255); overflow: auto; border-radius: 0px; outline: none; padding: 0px; z-index: 900;">
-          <div class="project-modal-body">
-            <div class="modal-exit-btn">
-              <button type="button" class="close mt-1 mr-2" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-text-top">
-              <div style="line-height: 1;">
-                <p class="project-company mb-0">Personal Project</p>
-                <p class="project-title">Flask{{{ ssd }}}-{{{ ssde }}}Inspired C Web Server</p>
-              </div>
+{{#*inline "company_name"}}Personal Project{{/inline}}
+{{#*inline "project_name"}}Flask{{{ ssd }}}-{{{ ssde }}}Inspired C Web Server{{/inline}}
+{{#*inline "modal_id"}}kqueue{{/inline}}
+{{#*inline "modal_content"}}
               <p class="modal-text">
                 I built a web server in C that is inspired by the Flask web framework for Python{{{ ssd }}}-{{{ ssde }}}based web servers. 
                 It takes inspiration from Flask{{{ ssd }}}'{{{ ssde }}}s function annotation route definitions. 
@@ -43,6 +33,7 @@
               </p>
               <div class="embed-responsive embed-responsive-21by9">
                 <iframe
+                  loading="lazy"
                   class="embed-responsive-item"
                   src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=panda-syntax&wt=none&l=python&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=from%2520flask%2520import%2520Flask%250A%250Aapp%2520%253D%2520Flask%28__name__%29%250A%250A%2540app.route%28%27%252F%27%29%250Adef%2520hello%28%29%253A%250A%2520%2520%2520%2520return%2520%27Hello%252C%2520World%21%27"
                   sandbox="allow-scripts allow-same-origin">
@@ -53,6 +44,7 @@
               </p>
               <div class="embed-responsive embed-responsive-21by9">
                 <iframe
+                  loading="lazy"
                   class="embed-responsive-item"
                   src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=panda-syntax&wt=none&l=text%2Fx-csrc&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523include%2520%2522server.h%2522%250A%2523include%2520%253Cerr.h%253E%250A%250Aresponse_t*%2520hello%28request_t*%2520request%29%2520%257B%250A%2520%2520%2520%2520return%2520response_from_string%28STATUS_OK%252C%2520%2522Hello%252C%2520World%21%2522%29%253B%250A%257D%250A%250Aint%2520main%28int%2520argc%252C%2520char**%2520argv%29%2520%257B%250A%2509if%2520%28argc%2520%21%253D%25202%29%250A%2520%2520%2520%2520%2520%2520%2520%2520errx%28EXIT_FAILURE%252C%2520%2522.%252Fserver%2520%253Cport%253E%2522%29%253B%250A%250A%2520%2520%2520%2520server_init%28argv%255B1%255D%29%253B%250A%2520%2520%2520%2520server_register_route%28HTTP_GET%252C%2520%2522%252F%2522%252C%2520hello%29%253B%2520%2520%2520%2520%250A%2520%2520%2520%2520server_launch%28%29%253B%250A%257D"
                   sandbox="allow-scripts allow-same-origin">
@@ -83,13 +75,11 @@
               </p>
               <div class="embed-responsive embed-responsive-1by1">
                 <iframe
+                  loading="lazy"
                   class="embed-responsive-item"
                   src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=panda-syntax&wt=none&l=text%2Fx-csrc&width=680&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=true&pv=56px&ph=56px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%2523include%2520%2522server.h%2522%250A%2523include%2520%253Cerr.h%253E%250A%250Aresponse_t*%2520favicon%28request_t*%2520request%29%2520%257B%250A%2520%2520%2520%2520response_t*%2520r%2520%253D%2520response_from_file%28STATUS_OK%252C%2520fopen%28%2522.%252Ffavicon.png%2522%252C%2520%2522r%2522%29%29%253B%250A%2520%2520%2520%2520response_set_content_type%28r%252C%2520CONTENT_TYPE_PNG%29%253B%250A%250A%2520%2520%2520%2520return%2520r%253B%250A%257D%250A%250Aresponse_t*%2520test_handler%28request_t*%2520request%29%2520%257B%250A%2520%2520%2509%252F%252F%2520Request%2520handling%2520here...%250A%2520%2520%250A%2520%2520%2509%252F%252F%2520---------%2520SNIP%2520---------%250A%2520%2520%2509%250A%2520%2520%2520%2520response_t*%2520r%2520%253D%2520response_from_string%28STATUS_OK%252C%2520%2522%257B%255C%2522response%255C%2522%253A%255C%2522uploaded%255C%2522%257D%2522%29%253B%250A%2520%2520%2520%2520response_set_content_type%28r%252C%2520CONTENT_TYPE_JSON%29%253B%250A%250A%2520%2520%2520%2520return%2520r%253B%250A%257D%250A%250Aint%2520main%28int%2520argc%252C%2520char**%2520argv%29%2520%257B%250A%2509if%2520%28argc%2520%21%253D%25202%29%250A%2520%2520%2520%2520%2520%2520%2520%2520errx%28EXIT_FAILURE%252C%2520%2522.%252Fserver%2520%253Cport%253E%2522%29%253B%250A%250A%2520%2520%2520%2520server_init%28argv%255B1%255D%29%253B%250A%250A%2520%2520%2520%2520server_register_route%28HTTP_POST%252C%2520%2522%252Fv1%252Fapi%252Ftest%2522%252C%2520api_handler%29%253B%250A%2520%2520%2520%2520server_register_route%28HTTP_GET%252C%2520%2522%252Ffavicon.ico%2522%252C%2520favicon%29%253B%250A%2520%2520%2520%2520%250A%2520%2520%2520%2520server_launch%28%29%253B%250A%257D"
                   sandbox="allow-scripts allow-same-origin">
                 </iframe>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+{{/inline}}
+{{> text-modal-base }}
