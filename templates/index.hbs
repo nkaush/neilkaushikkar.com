@@ -5,32 +5,34 @@
         <h2 class="introduction">Hey, I{{{ ssd }}}'{{{ ssde }}}m Neil {{{ ssd }}}-{{{ ssde }}} A Software Engineer<br>from San Francisco.</h2>
         <p class="introduction-content mt-3">
           I{{{ ssd }}}'{{{ ssde }}}m a computer science student at the University of Illinois at Urbana{{{ ssd }}}-{{{ ssde }}}Champaign {{{ ssd }}}({{{ ssde }}}UIUC{{{ ssd }}}){{{ ssde }}}.
-          I currently run the <a class="boxed-link" href="{{ links.cs128h }}" target="_blank" rel="noopener noreferrer">CS 128 Honors</a> course at UIUC where I{{{ ssd }}}'{{{ ssde }}}ve taught the Rust programming language to {{{ ssd }}}~{{{ ssde }}}300 freshman since January 2022. 
-          I{{{ ssd }}}'{{{ ssde }}}ve worked on countless Scala{{{ ssd }}}/{{{ ssde }}}Java{{{ ssd }}}/{{{ ssde }}}Rust{{{ ssd }}}/{{{ ssde }}}Python HTTP{{{ ssd }}}/{{{ ssde }}}REST applications, developed high{{{ ssd }}}-{{{ ssde }}}performance low{{{ ssd }}}-{{{ ssde }}}level projects in C and C{{{ ssd }}}++{{{ ssde }}}, and have lots of experience working with unfamiliar large{{{ ssd }}}-{{{ ssde }}}scale codebases while learning programming languages and technologies on the fly.
+          I{{{ ssd }}}'{{{ ssde }}}ve taught a class about the Rust programming language, worked on countless Scala{{{ ssd }}}/{{{ ssde }}}Java{{{ ssd }}}/{{{ ssde }}}Rust{{{ ssd }}}/{{{ ssde }}}Python HTTP{{{ ssd }}}/{{{ ssde }}}REST applications, developed high{{{ ssd }}}-{{{ ssde }}}performance low{{{ ssd }}}-{{{ ssde }}}level projects in C and C{{{ ssd }}}++{{{ ssde }}}, and have lots of experience working with unfamiliar large{{{ ssd }}}-{{{ ssde }}}scale codebases while learning programming languages and technologies on the fly.
           You can view my resume, LinkedIn, and GitHub above and learn more about some of my work below.
         </p>
       </div>
     </div>
-    <div class="container mb-3">
-      <h2 class="introduction">Featured Work.</h2>
-      <div class="row my-2">
-        {{#each experiences}}
-        <div class="col-lg-6 col-sm-12 my-3">
-          <div class="project-card" id="project-0" data-toggle="modal" data-target="#{{ this.modal_id }}">
-            <div class="image-overlay">
-              <div class="image-overlay-text">
-                <p class="project-company mb-0">{{ this.company }}</p>
-                <p class="project-title">{{ this.project }}</p>
+    <div class="d-flex justify-content-start mb-3">
+      <div class="container">
+        <h2 class="introduction">Featured Work.</h2>
+        <div class="row my-2">
+          {{#each experiences}}
+          <div class="col-lg-6 col-sm-12 my-3">
+            <div class="project-card" id="project-0" data-toggle="modal" data-target="#{{ this.modal_id }}">
+              <div class="image-overlay">
+                <div class="image-overlay-text">
+                  <p class="project-company mb-0">{{ this.company }}</p>
+                  <p class="project-title">{{ this.project }}</p>
+                </div>
+              </div>
+              <div class="card-image" style="overflow: hidden; max-height: 85%;">
+                <img class="card-image-img" src="{{ this.image }}">
               </div>
             </div>
-            <div class="card-image" style="overflow: hidden; max-height: 85%;">
-              <img class="card-image-img" src="{{ this.image }}">
-            </div>
           </div>
+          {{/each}}
         </div>
-        {{/each}}
       </div>
     </div>
+    
 {{> al22_modal ssd=ssd ssde=ssde }}
 {{> burd_modal ssd=ssd ssde=ssde }}
 {{> luis_modal ssd=ssd ssde=ssde }}
