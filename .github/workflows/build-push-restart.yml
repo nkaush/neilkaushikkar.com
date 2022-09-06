@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  docker-build-and-push:
+  build-image-restart-container:
     runs-on: ubuntu-latest
     steps:
       -
@@ -28,13 +28,10 @@ jobs:
           tags: neilk3/website:latest
           cache-from: type=registry,ref=neilk3/website:latest
           cache-to: type=inline
-  azure-restart-container:
-    runs-on: ubuntu-latest
-    # See for login details: https://github.com/Azure/login#configure-deployment-credentials
-    steps:
       - 
         name: Azure Login
         uses: azure/login@v1
+        # See for login details: https://github.com/Azure/login#configure-deployment-credentials
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - 
