@@ -6,7 +6,6 @@ on:
 jobs:
   azure-restart-container:
     runs-on: ubuntu-latest
-    # See for login details: https://github.com/Azure/login#configure-deployment-credentials
     steps:
       - 
         name: Azure Login

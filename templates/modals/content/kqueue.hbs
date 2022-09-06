@@ -66,7 +66,7 @@
                 The server only runs on a single thread, so accepting a connection from a client and handling a portion of the IO that can be acted upon is all done on a single thread in a single cycle of a loop. 
                 As the number of clients that must be served increases, the time taken to handle each client and accept a single connection increases. 
                 I am currently working on a fix that accepts clients and adds them to a queue of clients to be served on a different thread. 
-                However, there are some nuances that arise from the blocking-nature of kqueue and the absence of a wakeup mechanism.
+                However, there are some nuances that arise from the blocking{{{ ssd }}}-{{{ ssde }}}nature of kqueue and the absence of a wakeup mechanism.
                 My multi{{{ ssd }}}-{{{ ssde }}}threaded solution is currently in progress, but it is messy and relies on a hacky busy waiting solution.
                 However, the server works very well when handling fewer than 500 concurrent connections. It can serve files and static content very efficienty. 
               </p>
