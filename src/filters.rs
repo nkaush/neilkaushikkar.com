@@ -1,7 +1,8 @@
-use warp::Filter;
+use warp::{Filter, Reply, Rejection, fs, compression};
+use super::handlers::handle_index;
 
 /// combine all routes
-pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+pub fn all_routes() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     index()
         .or(home())
         .or(serve_static())
@@ -11,47 +12,47 @@ pub fn all_routes() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rej
         .or(webroot_acme_challenge())
 }
 
-fn home() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn home() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path::end()
         .and(warp::get())
-        .and(warp::fs::file("templates/generated/index.html"))
-        .with(warp::compression::gzip())
+        .and_then(handle_index)
+        .with(compression::gzip())
 }
 
-fn index() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn index() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path!("index")
         .and(warp::get())
-        .and(warp::fs::file("templates/generated/index.html"))
-        .with(warp::compression::gzip())
+        .and_then(handle_index)
+        .with(compression::gzip())
 }
 
-fn serve_static() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn serve_static() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path("static")
         .and(warp::get())
-        .and(warp::fs::dir("www/static"))
+        .and(fs::dir("www/static"))
 }
 
-fn resume() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn resume() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path("resume")
         .and(warp::get())
-        .and(warp::fs::file("www/static/doc/resume.pdf"))
+        .and(fs::file("www/static/doc/resume.pdf"))
 }
 
-fn favicon() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn favicon() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path("favicon.ico")
         .and(warp::get())
-        .and(warp::fs::file("www/static/images/favicon.png"))
+        .and(fs::file("www/static/images/favicon.png"))
 }
 
-fn robots_txt() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn robots_txt() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path("robots.txt")
         .and(warp::get())
-        .and(warp::fs::file("www/robots.txt"))
+        .and(fs::file("www/robots.txt"))
 }
 
-fn webroot_acme_challenge() -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+fn webroot_acme_challenge() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path(".well-known")
         .and(warp::path("acme-challenge"))
         .and(warp::get())
-        .and(warp::fs::dir(".well-known/acme-challenge"))
+        .and(fs::dir(".well-known/acme-challenge"))
 }
