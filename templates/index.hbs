@@ -1,16 +1,17 @@
 {{#*inline "content"}}
     <br><br><br>
-    <div class="container mt-5 pt-5">
-      <h2 class="introduction">Hey, I{{{ ssd }}}'{{{ ssde }}}m Neil {{{ ssd }}}-{{{ ssde }}} A Software Engineer<br>from San Francisco.</h2>
-      <p class="introduction-content mt-3">
-        I{{{ ssd }}}'{{{ ssde }}}m a computer science student at the University of Illinois at Urbana{{{ ssd }}}-{{{ ssde }}}Champaign {{{ ssd }}}({{{ ssde }}}UIUC{{{ ssd }}}){{{ ssde }}}.
-        I currently run the <a class="boxed-link" href="{{ links.cs128h }}" target="_blank" rel="noopener noreferrer">CS 128 Honors</a> course at UIUC where I{{{ ssd }}}'{{{ ssde }}}ve taught the Rust programming language to {{{ ssd }}}~{{{ ssde }}}300 freshman since January 2022. 
-        I{{{ ssd }}}'{{{ ssde }}}ve worked on countless Scala{{{ ssd }}}/{{{ ssde }}}Java{{{ ssd }}}/{{{ ssde }}}Rust{{{ ssd }}}/{{{ ssde }}}Python HTTP{{{ ssd }}}/{{{ ssde }}}REST applications, developed high{{{ ssd }}}-{{{ ssde }}}performance low{{{ ssd }}}-{{{ ssde }}}level projects in C and C{{{ ssd }}}++{{{ ssde }}}, and have lots of experience working with unfamiliar large{{{ ssd }}}-{{{ ssde }}}scale codebases while learning programming languages and technologies on the fly.
-        You can view my resume, LinkedIn, and GitHub above and learn more about some of my work below.
-      </p>
+    <div class="d-flex align-items-center" style="height: 80vh; min-height: 500px; width: 100%; margin: auto;">
+      <div class="container">
+        <h2 class="introduction">Hey, I{{{ ssd }}}'{{{ ssde }}}m Neil {{{ ssd }}}-{{{ ssde }}} A Software Engineer<br>from San Francisco.</h2>
+        <p class="introduction-content mt-3">
+          I{{{ ssd }}}'{{{ ssde }}}m a computer science student at the University of Illinois at Urbana{{{ ssd }}}-{{{ ssde }}}Champaign {{{ ssd }}}({{{ ssde }}}UIUC{{{ ssd }}}){{{ ssde }}}.
+          I currently run the <a class="boxed-link" href="{{ links.cs128h }}" target="_blank" rel="noopener noreferrer">CS 128 Honors</a> course at UIUC where I{{{ ssd }}}'{{{ ssde }}}ve taught the Rust programming language to {{{ ssd }}}~{{{ ssde }}}300 freshman since January 2022. 
+          I{{{ ssd }}}'{{{ ssde }}}ve worked on countless Scala{{{ ssd }}}/{{{ ssde }}}Java{{{ ssd }}}/{{{ ssde }}}Rust{{{ ssd }}}/{{{ ssde }}}Python HTTP{{{ ssd }}}/{{{ ssde }}}REST applications, developed high{{{ ssd }}}-{{{ ssde }}}performance low{{{ ssd }}}-{{{ ssde }}}level projects in C and C{{{ ssd }}}++{{{ ssde }}}, and have lots of experience working with unfamiliar large{{{ ssd }}}-{{{ ssde }}}scale codebases while learning programming languages and technologies on the fly.
+          You can view my resume, LinkedIn, and GitHub above and learn more about some of my work below.
+        </p>
+      </div>
     </div>
-
-    <div class="container my-3 pt-5">
+    <div class="container mb-3">
       <h2 class="introduction">Featured Work.</h2>
       <div class="row my-2">
         {{#each experiences}}
