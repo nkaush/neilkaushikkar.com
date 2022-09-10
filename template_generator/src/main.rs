@@ -1,4 +1,5 @@
-use webserver::content;
+mod content;
+
 use std::error::Error;
 use log::info;
 

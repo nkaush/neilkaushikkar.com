@@ -1,6 +1,6 @@
-use std::error::Error;
 use serde_json::{Value, Map};
 use handlebars::Handlebars;
+use std::error::Error;
 
 pub struct Content<'a> {
     data: Map<String, Value>,

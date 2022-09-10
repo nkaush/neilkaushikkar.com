@@ -1,19 +1,11 @@
 use warp::{Reply, reply, Rejection, reject, http::StatusCode, filters::body};
 use std::{convert::Infallible, fs::read_to_string};
 use lazy_static::lazy_static;
-use serde::Serialize;
 
 lazy_static! {
     static ref INDEX_BODY: String = {
         read_to_string("templates/generated/index.html").unwrap()
     };
-}
-
-/// An API error serializable to JSON.
-#[derive(Serialize)]
-struct ErrorMessage {
-    code: u16,
-    message: String,
 }
 
 pub async fn handle_index() -> Result<impl Reply, Rejection> {
@@ -44,14 +36,8 @@ pub async fn handle_rejection(err: Rejection) -> Result<impl Reply, Infallible> 
         message = "UNHANDLED_REJECTION";
     }
 
-    let error = ErrorMessage {
-        code: code.as_u16(),
-        message: message.into(),
-    };
-
-    let reply = reply::html(
-        serde_json::to_string(&error).unwrap()
-    );
+    let json = format!("{{\"code\":{},\"message\":\"{}\"}}", code.as_u16(), message);
+    let reply = reply::html(json);
 
     Ok(reply::with_status(reply, code))
 }

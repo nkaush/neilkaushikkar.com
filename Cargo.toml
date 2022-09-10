@@ -1,26 +1,8 @@
-[package]
-name = "webserver"
-version = "0.1.0"
-authors = ["Neil Kaushikkar <neil.kaushikkar@gmail.com>"]
-edition = "2018"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace]
+members = ["webserver", "template_generator"]
 
 [profile.release]
-strip = true
 lto = true
-codegen-units = 1
+strip = true
 panic = "abort"
-
-[dependencies]
-warp = { version = "0.3", features = ["tls", "compression"] }
-reqwest = { version = "0.11", features = ["json"] }
-tokio = { version = "1", features = ["rt", "macros", "rt-multi-thread"] }
-serde = { version = "1.0", features = ["derive"] }
-log = "0.4.14"
-pretty_env_logger = "0.4.0"
-handlebars = "4.1.1"
-serde_derive = "1.0.117"
-serde_json = "1.0.59"
-lazy_static = "1.4.0"
-futures = "*"
+codegen-units = 1

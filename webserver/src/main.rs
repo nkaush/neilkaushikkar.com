@@ -1,5 +1,7 @@
+mod filters;
+mod handlers;
+
 use std::{io, env, fs::File, error::Error, net::Ipv4Addr};
-use webserver::{filters, handlers};
 use log::{info, debug};
 use futures::future;
 use warp::Filter;
